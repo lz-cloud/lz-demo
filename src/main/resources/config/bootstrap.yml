@@ -1,0 +1,19 @@
+
+spring:
+  application:
+    name: lz-demo
+    group: lz
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        serviceId: soa-config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka.wkclz.com/eureka/

@@ -1,0 +1,11 @@
+{
+  "name": "DEMO-api",
+  "version": "0.0.1",
+  "description": "DEMO API 接口文档",
+  "title": "demo-api",
+  "url": "http://api.example.com/demo",
+  "header": {
+    "title": "系统规范",
+    "filename": "header.md"
+  }
+}
