@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wkclz.demo.dao.DemoTypesMapper">
+
+  <!-- // 示例查询 -->
+  <select id="selectExample" parameterType="com.wkclz.demo.pojo.entity.DemoTypes" resultType="com.wkclz.demo.pojo.entity.DemoTypes">
+    select
+      id,
+      type_int,
+      type_bigint,
+      type_binary,
+      type_bit,
+      type_blob,
+      type_char,
+      type_date,
+      type_datetime,
+      type_decimal,
+      type_double,
+      type_float,
+      type_geometry,
+      type_geometrycollection,
+      type_integer,
+      type_json,
+      type_linestring,
+      type_longblob,
+      type_longtext,
+      type_mediumblob,
+      type_mediumint,
+      type_mediumtext,
+      type_multilinestring,
+      type_multipoint,
+      type_multipolygon,
+      type_numeric,
+      type_point,
+      type_polygon,
+      type_real,
+      type_text,
+      type_time,
+      type_timestamp,
+      type_tinyblob,
+      type_tinyint,
+      type_tinytext,
+      type_varbinary,
+      type_varchar,
+      type_year,
+      sort,
+      enable_flag,
+      enable_begin,
+      enable_end,
+      create_time,
+      comments,
+      version,
+      'true' as QUERYID
+    FROM
+      demo_types
+    WHERE
+      1 = 1
+      <if test="id != null">
+        AND id = #{id}
+      </if>
+      <if test="typeInt != null">
+        AND type_int = #{typeInt}
+      </if>
+      <if test="typeBigint != null">
+        AND type_bigint = #{typeBigint}
+      </if>
+      <if test="typeBinary != null">
+        AND type_binary = #{typeBinary}
+      </if>
+      <if test="typeBit != null">
+        AND type_bit = #{typeBit}
+      </if>
+      <if test="typeBlob != null">
+        AND type_blob = #{typeBlob}
+      </if>
+      <if test="typeChar != null">
+        AND type_char = #{typeChar}
+      </if>
+      <if test="typeDate != null">
+        AND type_date = #{typeDate}
+      </if>
+      <if test="typeDatetime != null">
+        AND type_datetime = #{typeDatetime}
+      </if>
+      <if test="typeDecimal != null">
+        AND type_decimal = #{typeDecimal}
+      </if>
+      <if test="typeDouble != null">
+        AND type_double = #{typeDouble}
+      </if>
+      <if test="typeFloat != null">
+        AND type_float = #{typeFloat}
+      </if>
+      <if test="typeGeometry != null">
+        AND type_geometry = #{typeGeometry}
+      </if>
+      <if test="typeGeometrycollection != null">
+        AND type_geometrycollection = #{typeGeometrycollection}
+      </if>
+      <if test="typeInteger != null">
+        AND type_integer = #{typeInteger}
+      </if>
+      <if test="typeJson != null">
+        AND type_json = #{typeJson}
+      </if>
+      <if test="typeLinestring != null">
+        AND type_linestring = #{typeLinestring}
+      </if>
+      <if test="typeLongblob != null">
+        AND type_longblob = #{typeLongblob}
+      </if>
+      <if test="typeLongtext != null">
+        AND type_longtext = #{typeLongtext}
+      </if>
+      <if test="typeMediumblob != null">
+        AND type_mediumblob = #{typeMediumblob}
+      </if>
+      <if test="typeMediumint != null">
+        AND type_mediumint = #{typeMediumint}
+      </if>
+      <if test="typeMediumtext != null">
+        AND type_mediumtext = #{typeMediumtext}
+      </if>
+      <if test="typeMultilinestring != null">
+        AND type_multilinestring = #{typeMultilinestring}
+      </if>
+      <if test="typeMultipoint != null">
+        AND type_multipoint = #{typeMultipoint}
+      </if>
+      <if test="typeMultipolygon != null">
+        AND type_multipolygon = #{typeMultipolygon}
+      </if>
+      <if test="typeNumeric != null">
+        AND type_numeric = #{typeNumeric}
+      </if>
+      <if test="typePoint != null">
+        AND type_point = #{typePoint}
+      </if>
+      <if test="typePolygon != null">
+        AND type_polygon = #{typePolygon}
+      </if>
+      <if test="typeReal != null">
+        AND type_real = #{typeReal}
+      </if>
+      <if test="typeText != null">
+        AND type_text = #{typeText}
+      </if>
+      <if test="typeTime != null">
+        AND type_time = #{typeTime}
+      </if>
+      <if test="typeTimestamp != null">
+        AND type_timestamp = #{typeTimestamp}
+      </if>
+      <if test="typeTinyblob != null">
+        AND type_tinyblob = #{typeTinyblob}
+      </if>
+      <if test="typeTinyint != null">
+        AND type_tinyint = #{typeTinyint}
+      </if>
+      <if test="typeTinytext != null">
+        AND type_tinytext = #{typeTinytext}
+      </if>
+      <if test="typeVarbinary != null">
+        AND type_varbinary = #{typeVarbinary}
+      </if>
+      <if test="typeVarchar != null">
+        AND type_varchar = #{typeVarchar}
+      </if>
+      <if test="typeYear != null">
+        AND type_year = #{typeYear}
+      </if>
+      <if test="sort != null">
+        AND sort = #{sort}
+      </if>
+      <if test="enableFlag != null">
+        AND enable_flag = #{enableFlag}
+      </if>
+      <if test="enableBegin != null">
+        AND enable_begin = #{enableBegin}
+      </if>
+      <if test="enableEnd != null">
+        AND enable_end = #{enableEnd}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="comments != null">
+        AND comments = #{comments}
+      </if>
+      <if test="version != null">
+        AND version = #{version}
+      </if>
+  </select>
+
+</mapper>
