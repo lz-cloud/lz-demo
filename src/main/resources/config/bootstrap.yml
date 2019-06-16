@@ -17,3 +17,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka.wkclz.com/eureka/
+
+logging:
+  file: ./logs/${spring.application.name}.log
+  level:
+    org.springframework.web: debug
+    com.wkclz.demo: debug
