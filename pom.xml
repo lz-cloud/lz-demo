@@ -40,8 +40,6 @@
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
         <!-- 项目内按情况依赖 end -->
-
-
     </dependencies>
 
     <build>
@@ -63,5 +61,22 @@
             </resource>
         </resources>
     </build>
+
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+        <repository>
+            <id>github-mvn</id>
+            <url>https://github.com/wkclz/mvn-repository/raw/master</url>
+        </repository>
+    </repositories>
 
 </project>
