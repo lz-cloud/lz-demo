@@ -2,17 +2,23 @@
 
 # JDk 路径
 JAVA_HOME=/opt/jdk1.8
+
 # APP 文件名
 APP_NAME=lz-demo-0.0.1.jar
+
 # 应用组
 APP_GROUP=lz
+
 # eureka 注册地址
 EUREKA_REGISTER_ADDR=http://127.0.0.1:8001/eureka
+
 # 启动环境
 ENV=dev
 
+# 备份数量
+BAK_NUM=3
+
 APP_HOME=$(cd `dirname $0`; pwd)
-URANDOM=-Djava.security.egd=file:/dev/./urandom
 
 psid=0
 checkpid() {
@@ -33,25 +39,44 @@ start() {
    else
       echo -n "Starting $APP_NAME ..."
       cd $APP_HOME
-      nohup $JAVA_HOME/bin/java $URANDOM -jar $APP_HOME/$APP_NAME --eureka.client.service-url.defaultZone=$EUREKA_REGISTER_ADDR --spring.profiles.active=$ENV --spring.application.group=$APP_GROUP >/dev/null 2>&1 &
+      nohup $JAVA_HOME/bin/java -server -Djava.security.egd=file:/dev/./urandom -jar $APP_HOME/$APP_NAME --eureka.client.service-url.defaultZone=$EUREKA_REGISTER_ADDR --spring.profiles.active=$ENV --spring.application.group=$APP_GROUP >/dev/null 2>&1 &
 
+      sleep 2s
       checkpid
       if [ $psid -ne 0 ]; then
          echo "(pid=$psid) [OK]"
-
-         # startup and backup
-         if [ ! -d 'bak' ]; then
-           mkdir bak
-         fi
-
-         echo -n "Backuping $APP_NAME to ./bak/$APP_NAME.`date +%Y%m%d%H%M%S`.tar.gz ..."
-         tar -zcf ./bak/$APP_NAME.`date +%Y%m%d%H%M%S`.tar.gz $APP_NAME
-         echo "[OK]"
+         bakfile
       else
          echo "[Failed]"
       fi
    fi
 }
+
+
+bakfile() {
+   echo "----------------------------------backup----------------------------------"
+   # startup and backup
+   if [ ! -d 'bak' ]; then
+      mkdir bak
+   fi
+
+   FILE_NUM=$(cd `dirname $0`;cd $APP_HOME/bak;ls -l *.tar.gz | grep ^- | wc -l)
+   echo "$FILE_NUM backup jars in ./bak"
+   echo "$BAK_NUM backup jars will be keep in ./bak"
+   while(($FILE_NUM > $BAK_NUM))
+   do
+      OLD_FILE=$(cd `dirname $0`;cd ../bak;ls -rt *.tar.gz | head -1)
+      echo "Remove old backup jars:"$APP_HOME'/bak/'$OLD_FILE
+      rm -f $APP_HOME'/bak/'$OLD_FILE
+      let "FILE_NUM--"
+   done
+
+   echo -n "Backuping $APP_NAME to ./bak/$APP_NAME.`date +%Y%m%d%H%M%S`.tar.gz ..."
+   tar -zcf ./bak/$APP_NAME.`date +%Y%m%d%H%M%S`.tar.gz $APP_NAME
+   echo "[OK]"
+   echo "----------------------------------backup----------------------------------"
+}
+
 stop() {
    checkpid
    if [ $psid -ne 0 ]; then
