@@ -30,11 +30,17 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- 项目内按情况依赖 -->
+        <!-- 项目内按情况依赖 begin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
+        <!-- 项目内按情况依赖 end -->
+
 
     </dependencies>
 
