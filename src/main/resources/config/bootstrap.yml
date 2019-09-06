@@ -19,10 +19,10 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
   client:
-    healthcheck:
-      enabled: true
+  #  healthcheck:
+  #    enabled: true
     serviceUrl:
-      defaultZone: http://eureka.wkclz.com/eureka/
+      defaultZone: http://127.0.0.1:8001/eureka/
 
 logging:
   file: ./logs/${spring.application.name}.log
