@@ -1,4 +1,4 @@
-package com.wkclz.demo.controller.custom.scheduler;
+package com.wkclz.demo.rest.custom.scheduler;
 
 
 import org.slf4j.Logger;

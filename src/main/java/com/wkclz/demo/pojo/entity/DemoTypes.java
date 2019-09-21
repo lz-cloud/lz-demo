@@ -95,7 +95,7 @@ public class DemoTypes extends BaseModel {
     /**
      * type_geometrycollection
      */
-    private Object typeGeometrycollection;
+    private byte[] typeGeometrycollection;
 
     /**
      * type_integer
@@ -103,14 +103,14 @@ public class DemoTypes extends BaseModel {
     private Integer typeInteger;
 
     /**
-     * type_json
+     * type_json [MBG不支持JSON]
      */
     private String typeJson;
 
     /**
      * type_linestring
      */
-    private Object typeLinestring;
+    private byte[] typeLinestring;
 
     /**
      * type_longblob
@@ -140,17 +140,17 @@ public class DemoTypes extends BaseModel {
     /**
      * type_multilinestring
      */
-    private Object typeMultilinestring;
+    private byte[] typeMultilinestring;
 
     /**
      * type_multipoint
      */
-    private Object typeMultipoint;
+    private byte[] typeMultipoint;
 
     /**
      * type_multipolygon
      */
-    private Object typeMultipolygon;
+    private byte[] typeMultipolygon;
 
     /**
      * type_numeric
@@ -160,12 +160,12 @@ public class DemoTypes extends BaseModel {
     /**
      * type_point
      */
-    private Object typePoint;
+    private byte[] typePoint;
 
     /**
      * type_polygon
      */
-    private Object typePolygon;
+    private byte[] typePolygon;
 
     /**
      * type_real
@@ -398,17 +398,9 @@ public class DemoTypes extends BaseModel {
         if (model.getTypeDecimal()!=null){ criteria.andTypeDecimalEqualTo(model.getTypeDecimal()); }
         if (model.getTypeDouble()!=null){ criteria.andTypeDoubleEqualTo(model.getTypeDouble()); }
         if (model.getTypeFloat()!=null){ criteria.andTypeFloatEqualTo(model.getTypeFloat()); }
-        if (model.getTypeGeometrycollection()!=null){ criteria.andTypeGeometrycollectionEqualTo(model.getTypeGeometrycollection()); }
         if (model.getTypeInteger()!=null){ criteria.andTypeIntegerEqualTo(model.getTypeInteger()); }
-        if (model.getTypeJson()!=null){ criteria.andTypeJsonEqualTo(model.getTypeJson()); }
-        if (model.getTypeLinestring()!=null){ criteria.andTypeLinestringEqualTo(model.getTypeLinestring()); }
         if (model.getTypeMediumint()!=null){ criteria.andTypeMediumintEqualTo(model.getTypeMediumint()); }
-        if (model.getTypeMultilinestring()!=null){ criteria.andTypeMultilinestringEqualTo(model.getTypeMultilinestring()); }
-        if (model.getTypeMultipoint()!=null){ criteria.andTypeMultipointEqualTo(model.getTypeMultipoint()); }
-        if (model.getTypeMultipolygon()!=null){ criteria.andTypeMultipolygonEqualTo(model.getTypeMultipolygon()); }
         if (model.getTypeNumeric()!=null){ criteria.andTypeNumericEqualTo(model.getTypeNumeric()); }
-        if (model.getTypePoint()!=null){ criteria.andTypePointEqualTo(model.getTypePoint()); }
-        if (model.getTypePolygon()!=null){ criteria.andTypePolygonEqualTo(model.getTypePolygon()); }
         if (model.getTypeReal()!=null){ criteria.andTypeRealEqualTo(model.getTypeReal()); }
         if (model.getTypeTime()!=null){ criteria.andTypeTimeEqualTo(model.getTypeTime()); }
         if (model.getTypeTimestamp()!=null){ criteria.andTypeTimestampEqualTo(model.getTypeTimestamp()); }

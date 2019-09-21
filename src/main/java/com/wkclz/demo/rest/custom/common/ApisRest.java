@@ -1,7 +1,7 @@
-package com.wkclz.demo.controller.custom.common;
+package com.wkclz.demo.rest.custom.common;
 
 import com.wkclz.core.util.ControllerUtil;
-import com.wkclz.demo.controller.custom.Routes;
+import com.wkclz.demo.rest.custom.Routes;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
-public class ApisController {
+public class ApisRest {
 
 
     @GetMapping("/download/apis")

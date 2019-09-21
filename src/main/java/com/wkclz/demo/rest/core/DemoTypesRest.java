@@ -1,4 +1,4 @@
-package com.wkclz.demo.controller.core;
+package com.wkclz.demo.rest.core;
 
 import com.wkclz.core.base.BaseModel;
 import com.wkclz.core.base.PageData;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * @table: demo_types (demo-全类型)
  */
 // @RestController
-public class DemoTypesController {
+public class DemoTypesRest {
 
     @Autowired
     private DemoTypesRepo demoTypesRepo;
@@ -43,17 +43,10 @@ public class DemoTypesController {
      * @apiParam {BigDecimal} [typeDecimal] <code>param</code>type_decimal
      * @apiParam {Double} [typeDouble] <code>param</code>type_double
      * @apiParam {Float} [typeFloat] <code>param</code>type_float
-     * @apiParam {Object} [typeGeometrycollection] <code>param</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>param</code>type_integer
      * @apiParam {String} [typeJson] <code>param</code>type_json
-     * @apiParam {Object} [typeLinestring] <code>param</code>type_linestring
      * @apiParam {Integer} [typeMediumint] <code>param</code>type_mediumint
-     * @apiParam {Object} [typeMultilinestring] <code>param</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>param</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>param</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>param</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>param</code>type_point
-     * @apiParam {Object} [typePolygon] <code>param</code>type_polygon
      * @apiParam {Double} [typeReal] <code>param</code>type_real
      * @apiParam {Date} [typeTime] <code>param</code>type_time
      * @apiParam {Date} [typeTimestamp] <code>param</code>type_timestamp
@@ -85,21 +78,21 @@ public class DemoTypesController {
      * @apiSuccess {Double} [typeDouble] type_double
      * @apiSuccess {Float} [typeFloat] type_float
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
-     * @apiSuccess {Object} [typeGeometrycollection] type_geometrycollection
+     * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
      * @apiSuccess {String} [typeJson] type_json
-     * @apiSuccess {Object} [typeLinestring] type_linestring
+     * @apiSuccess {byte[]} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
      * @apiSuccess {byte[]} [typeMediumblob] type_mediumblob
      * @apiSuccess {Integer} [typeMediumint] type_mediumint
      * @apiSuccess {String} [typeMediumtext] type_mediumtext
-     * @apiSuccess {Object} [typeMultilinestring] type_multilinestring
-     * @apiSuccess {Object} [typeMultipoint] type_multipoint
-     * @apiSuccess {Object} [typeMultipolygon] type_multipolygon
+     * @apiSuccess {byte[]} [typeMultilinestring] type_multilinestring
+     * @apiSuccess {byte[]} [typeMultipoint] type_multipoint
+     * @apiSuccess {byte[]} [typeMultipolygon] type_multipolygon
      * @apiSuccess {BigDecimal} [typeNumeric] type_numeric
-     * @apiSuccess {Object} [typePoint] type_point
-     * @apiSuccess {Object} [typePolygon] type_polygon
+     * @apiSuccess {byte[]} [typePoint] type_point
+     * @apiSuccess {byte[]} [typePolygon] type_polygon
      * @apiSuccess {Double} [typeReal] type_real
      * @apiSuccess {String} [typeText] type_text
      * @apiSuccess {Date} [typeTime] type_time
@@ -204,17 +197,10 @@ public class DemoTypesController {
      * @apiParam {BigDecimal} [typeDecimal] <code>param</code>type_decimal
      * @apiParam {Double} [typeDouble] <code>param</code>type_double
      * @apiParam {Float} [typeFloat] <code>param</code>type_float
-     * @apiParam {Object} [typeGeometrycollection] <code>param</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>param</code>type_integer
      * @apiParam {String} [typeJson] <code>param</code>type_json
-     * @apiParam {Object} [typeLinestring] <code>param</code>type_linestring
      * @apiParam {Integer} [typeMediumint] <code>param</code>type_mediumint
-     * @apiParam {Object} [typeMultilinestring] <code>param</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>param</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>param</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>param</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>param</code>type_point
-     * @apiParam {Object} [typePolygon] <code>param</code>type_polygon
      * @apiParam {Double} [typeReal] <code>param</code>type_real
      * @apiParam {Date} [typeTime] <code>param</code>type_time
      * @apiParam {Date} [typeTimestamp] <code>param</code>type_timestamp
@@ -277,21 +263,21 @@ public class DemoTypesController {
      * @apiSuccess {Double} [typeDouble] type_double
      * @apiSuccess {Float} [typeFloat] type_float
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
-     * @apiSuccess {Object} [typeGeometrycollection] type_geometrycollection
+     * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
      * @apiSuccess {String} [typeJson] type_json
-     * @apiSuccess {Object} [typeLinestring] type_linestring
+     * @apiSuccess {byte[]} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
      * @apiSuccess {byte[]} [typeMediumblob] type_mediumblob
      * @apiSuccess {Integer} [typeMediumint] type_mediumint
      * @apiSuccess {String} [typeMediumtext] type_mediumtext
-     * @apiSuccess {Object} [typeMultilinestring] type_multilinestring
-     * @apiSuccess {Object} [typeMultipoint] type_multipoint
-     * @apiSuccess {Object} [typeMultipolygon] type_multipolygon
+     * @apiSuccess {byte[]} [typeMultilinestring] type_multilinestring
+     * @apiSuccess {byte[]} [typeMultipoint] type_multipoint
+     * @apiSuccess {byte[]} [typeMultipolygon] type_multipolygon
      * @apiSuccess {BigDecimal} [typeNumeric] type_numeric
-     * @apiSuccess {Object} [typePoint] type_point
-     * @apiSuccess {Object} [typePolygon] type_polygon
+     * @apiSuccess {byte[]} [typePoint] type_point
+     * @apiSuccess {byte[]} [typePolygon] type_polygon
      * @apiSuccess {Double} [typeReal] type_real
      * @apiSuccess {String} [typeText] type_text
      * @apiSuccess {Date} [typeTime] type_time
@@ -395,21 +381,21 @@ public class DemoTypesController {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json
-     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>body</code>type_point
-     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
+     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -516,21 +502,21 @@ public class DemoTypesController {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json
-     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>body</code>type_point
-     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
+     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -643,21 +629,21 @@ public class DemoTypesController {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json
-     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>body</code>type_point
-     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
+     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time

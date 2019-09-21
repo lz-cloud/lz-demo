@@ -12,17 +12,9 @@
     <result column="type_decimal" jdbcType="DECIMAL" property="typeDecimal" />
     <result column="type_double" jdbcType="DOUBLE" property="typeDouble" />
     <result column="type_float" jdbcType="REAL" property="typeFloat" />
-    <result column="type_geometrycollection" jdbcType="OTHER" property="typeGeometrycollection" />
     <result column="type_integer" jdbcType="INTEGER" property="typeInteger" />
-    <result column="type_json" jdbcType="CHAR" property="typeJson" />
-    <result column="type_linestring" jdbcType="OTHER" property="typeLinestring" />
     <result column="type_mediumint" jdbcType="INTEGER" property="typeMediumint" />
-    <result column="type_multilinestring" jdbcType="OTHER" property="typeMultilinestring" />
-    <result column="type_multipoint" jdbcType="OTHER" property="typeMultipoint" />
-    <result column="type_multipolygon" jdbcType="OTHER" property="typeMultipolygon" />
     <result column="type_numeric" jdbcType="DECIMAL" property="typeNumeric" />
-    <result column="type_point" jdbcType="OTHER" property="typePoint" />
-    <result column="type_polygon" jdbcType="OTHER" property="typePolygon" />
     <result column="type_real" jdbcType="DOUBLE" property="typeReal" />
     <result column="type_time" jdbcType="TIME" property="typeTime" />
     <result column="type_timestamp" jdbcType="TIMESTAMP" property="typeTimestamp" />
@@ -46,12 +38,20 @@
     <result column="type_binary" jdbcType="BINARY" property="typeBinary" />
     <result column="type_blob" jdbcType="LONGVARBINARY" property="typeBlob" />
     <result column="type_geometry" jdbcType="BINARY" property="typeGeometry" />
+    <result column="type_geometrycollection" jdbcType="BINARY" property="typeGeometrycollection" />
+    <result column="type_json" jdbcType="LONGVARCHAR" property="typeJson" />
+    <result column="type_linestring" jdbcType="BINARY" property="typeLinestring" />
     <result column="type_longblob" jdbcType="LONGVARBINARY" property="typeLongblob" />
     <result column="type_longtext" jdbcType="LONGVARCHAR" property="typeLongtext" />
     <result column="type_mediumblob" jdbcType="LONGVARBINARY" property="typeMediumblob" />
     <result column="type_mediumtext" jdbcType="LONGVARCHAR" property="typeMediumtext" />
+    <result column="type_multilinestring" jdbcType="BINARY" property="typeMultilinestring" />
+    <result column="type_multipoint" jdbcType="BINARY" property="typeMultipoint" />
+    <result column="type_multipolygon" jdbcType="BINARY" property="typeMultipolygon" />
+    <result column="type_point" jdbcType="BINARY" property="typePoint" />
+    <result column="type_polygon" jdbcType="BINARY" property="typePolygon" />
     <result column="type_text" jdbcType="LONGVARCHAR" property="typeText" />
-    <result column="type_tinyblob" jdbcType="BINARY" property="typeTinyblob" />
+    <result column="type_tinyblob" jdbcType="VARBINARY" property="typeTinyblob" />
     <result column="type_varbinary" jdbcType="VARBINARY" property="typeVarbinary" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -114,15 +114,16 @@
   </sql>
   <sql id="Base_Column_List">
     id, type_int, type_bigint, type_bit, type_char, type_date, type_datetime, type_decimal, 
-    type_double, type_float, type_geometrycollection, type_integer, type_json, type_linestring, 
-    type_mediumint, type_multilinestring, type_multipoint, type_multipolygon, type_numeric, 
-    type_point, type_polygon, type_real, type_time, type_timestamp, type_tinyint, type_tinytext, 
-    type_varchar, type_year, sort, enable_flag, enable_begin, enable_end, create_time, 
-    create_by, last_update_time, last_update_by, comments, version, status
+    type_double, type_float, type_integer, type_mediumint, type_numeric, type_real, type_time, 
+    type_timestamp, type_tinyint, type_tinytext, type_varchar, type_year, sort, enable_flag, 
+    enable_begin, enable_end, create_time, create_by, last_update_time, last_update_by, 
+    comments, version, status
   </sql>
   <sql id="Blob_Column_List">
-    type_binary, type_blob, type_geometry, type_longblob, type_longtext, type_mediumblob, 
-    type_mediumtext, type_text, type_tinyblob, type_varbinary
+    type_binary, type_blob, type_geometry, type_geometrycollection, type_json, type_linestring, 
+    type_longblob, type_longtext, type_mediumblob, type_mediumtext, type_multilinestring, 
+    type_multipoint, type_multipolygon, type_point, type_polygon, type_text, type_tinyblob, 
+    type_varbinary
   </sql>
   <select id="selectByExampleWithBLOBs" parameterType="com.wkclz.demo.pojo.entity.DemoTypesExample" resultMap="ResultMapWithBLOBs">
     select
@@ -169,36 +170,36 @@
     insert into demo_types (type_int, type_bigint, type_bit, 
       type_char, type_date, type_datetime, 
       type_decimal, type_double, type_float, 
-      type_geometrycollection, type_integer, type_json, 
-      type_linestring, type_mediumint, type_multilinestring, 
-      type_multipoint, type_multipolygon, type_numeric, 
-      type_point, type_polygon, type_real, 
-      type_time, type_timestamp, type_tinyint, 
-      type_tinytext, type_varchar, type_year, 
-      sort, enable_flag, enable_begin, 
-      enable_end, create_time, create_by, 
-      last_update_time, last_update_by, comments, 
-      version, status, type_binary, 
-      type_blob, type_geometry, type_longblob, 
-      type_longtext, type_mediumblob, 
-      type_mediumtext, type_text, type_tinyblob, 
+      type_integer, type_mediumint, type_numeric, 
+      type_real, type_time, type_timestamp, 
+      type_tinyint, type_tinytext, type_varchar, 
+      type_year, sort, enable_flag, 
+      enable_begin, enable_end, create_time, 
+      create_by, last_update_time, last_update_by, 
+      comments, version, status, 
+      type_binary, type_blob, type_geometry, 
+      type_geometrycollection, type_json, type_linestring, 
+      type_longblob, type_longtext, type_mediumblob, 
+      type_mediumtext, type_multilinestring, 
+      type_multipoint, type_multipolygon, type_point, 
+      type_polygon, type_text, type_tinyblob, 
       type_varbinary)
     values (#{typeInt,jdbcType=INTEGER}, #{typeBigint,jdbcType=BIGINT}, #{typeBit,jdbcType=BIT}, 
       #{typeChar,jdbcType=CHAR}, #{typeDate,jdbcType=DATE}, #{typeDatetime,jdbcType=TIMESTAMP}, 
       #{typeDecimal,jdbcType=DECIMAL}, #{typeDouble,jdbcType=DOUBLE}, #{typeFloat,jdbcType=REAL}, 
-      #{typeGeometrycollection,jdbcType=OTHER}, #{typeInteger,jdbcType=INTEGER}, #{typeJson,jdbcType=CHAR}, 
-      #{typeLinestring,jdbcType=OTHER}, #{typeMediumint,jdbcType=INTEGER}, #{typeMultilinestring,jdbcType=OTHER}, 
-      #{typeMultipoint,jdbcType=OTHER}, #{typeMultipolygon,jdbcType=OTHER}, #{typeNumeric,jdbcType=DECIMAL}, 
-      #{typePoint,jdbcType=OTHER}, #{typePolygon,jdbcType=OTHER}, #{typeReal,jdbcType=DOUBLE}, 
-      #{typeTime,jdbcType=TIME}, #{typeTimestamp,jdbcType=TIMESTAMP}, #{typeTinyint,jdbcType=TINYINT}, 
-      #{typeTinytext,jdbcType=VARCHAR}, #{typeVarchar,jdbcType=VARCHAR}, #{typeYear,jdbcType=DATE}, 
-      #{sort,jdbcType=INTEGER}, #{enableFlag,jdbcType=INTEGER}, #{enableBegin,jdbcType=TIMESTAMP}, 
-      #{enableEnd,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT}, 
-      #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=BIGINT}, #{comments,jdbcType=VARCHAR}, 
-      #{version,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{typeBinary,jdbcType=BINARY}, 
-      #{typeBlob,jdbcType=LONGVARBINARY}, #{typeGeometry,jdbcType=BINARY}, #{typeLongblob,jdbcType=LONGVARBINARY}, 
-      #{typeLongtext,jdbcType=LONGVARCHAR}, #{typeMediumblob,jdbcType=LONGVARBINARY}, 
-      #{typeMediumtext,jdbcType=LONGVARCHAR}, #{typeText,jdbcType=LONGVARCHAR}, #{typeTinyblob,jdbcType=BINARY}, 
+      #{typeInteger,jdbcType=INTEGER}, #{typeMediumint,jdbcType=INTEGER}, #{typeNumeric,jdbcType=DECIMAL}, 
+      #{typeReal,jdbcType=DOUBLE}, #{typeTime,jdbcType=TIME}, #{typeTimestamp,jdbcType=TIMESTAMP}, 
+      #{typeTinyint,jdbcType=TINYINT}, #{typeTinytext,jdbcType=VARCHAR}, #{typeVarchar,jdbcType=VARCHAR}, 
+      #{typeYear,jdbcType=DATE}, #{sort,jdbcType=INTEGER}, #{enableFlag,jdbcType=INTEGER}, 
+      #{enableBegin,jdbcType=TIMESTAMP}, #{enableEnd,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=BIGINT}, 
+      #{comments,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{typeBinary,jdbcType=BINARY}, #{typeBlob,jdbcType=LONGVARBINARY}, #{typeGeometry,jdbcType=BINARY}, 
+      #{typeGeometrycollection,jdbcType=BINARY}, #{typeJson,jdbcType=LONGVARCHAR}, #{typeLinestring,jdbcType=BINARY}, 
+      #{typeLongblob,jdbcType=LONGVARBINARY}, #{typeLongtext,jdbcType=LONGVARCHAR}, #{typeMediumblob,jdbcType=LONGVARBINARY}, 
+      #{typeMediumtext,jdbcType=LONGVARCHAR}, #{typeMultilinestring,jdbcType=BINARY}, 
+      #{typeMultipoint,jdbcType=BINARY}, #{typeMultipolygon,jdbcType=BINARY}, #{typePoint,jdbcType=BINARY}, 
+      #{typePolygon,jdbcType=BINARY}, #{typeText,jdbcType=LONGVARCHAR}, #{typeTinyblob,jdbcType=VARBINARY}, 
       #{typeVarbinary,jdbcType=VARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
@@ -234,38 +235,14 @@
       <if test="typeFloat != null">
         type_float,
       </if>
-      <if test="typeGeometrycollection != null">
-        type_geometrycollection,
-      </if>
       <if test="typeInteger != null">
         type_integer,
-      </if>
-      <if test="typeJson != null">
-        type_json,
-      </if>
-      <if test="typeLinestring != null">
-        type_linestring,
       </if>
       <if test="typeMediumint != null">
         type_mediumint,
       </if>
-      <if test="typeMultilinestring != null">
-        type_multilinestring,
-      </if>
-      <if test="typeMultipoint != null">
-        type_multipoint,
-      </if>
-      <if test="typeMultipolygon != null">
-        type_multipolygon,
-      </if>
       <if test="typeNumeric != null">
         type_numeric,
-      </if>
-      <if test="typePoint != null">
-        type_point,
-      </if>
-      <if test="typePolygon != null">
-        type_polygon,
       </if>
       <if test="typeReal != null">
         type_real,
@@ -330,6 +307,15 @@
       <if test="typeGeometry != null">
         type_geometry,
       </if>
+      <if test="typeGeometrycollection != null">
+        type_geometrycollection,
+      </if>
+      <if test="typeJson != null">
+        type_json,
+      </if>
+      <if test="typeLinestring != null">
+        type_linestring,
+      </if>
       <if test="typeLongblob != null">
         type_longblob,
       </if>
@@ -341,6 +327,21 @@
       </if>
       <if test="typeMediumtext != null">
         type_mediumtext,
+      </if>
+      <if test="typeMultilinestring != null">
+        type_multilinestring,
+      </if>
+      <if test="typeMultipoint != null">
+        type_multipoint,
+      </if>
+      <if test="typeMultipolygon != null">
+        type_multipolygon,
+      </if>
+      <if test="typePoint != null">
+        type_point,
+      </if>
+      <if test="typePolygon != null">
+        type_polygon,
       </if>
       <if test="typeText != null">
         type_text,
@@ -380,38 +381,14 @@
       <if test="typeFloat != null">
         #{typeFloat,jdbcType=REAL},
       </if>
-      <if test="typeGeometrycollection != null">
-        #{typeGeometrycollection,jdbcType=OTHER},
-      </if>
       <if test="typeInteger != null">
         #{typeInteger,jdbcType=INTEGER},
-      </if>
-      <if test="typeJson != null">
-        #{typeJson,jdbcType=CHAR},
-      </if>
-      <if test="typeLinestring != null">
-        #{typeLinestring,jdbcType=OTHER},
       </if>
       <if test="typeMediumint != null">
         #{typeMediumint,jdbcType=INTEGER},
       </if>
-      <if test="typeMultilinestring != null">
-        #{typeMultilinestring,jdbcType=OTHER},
-      </if>
-      <if test="typeMultipoint != null">
-        #{typeMultipoint,jdbcType=OTHER},
-      </if>
-      <if test="typeMultipolygon != null">
-        #{typeMultipolygon,jdbcType=OTHER},
-      </if>
       <if test="typeNumeric != null">
         #{typeNumeric,jdbcType=DECIMAL},
-      </if>
-      <if test="typePoint != null">
-        #{typePoint,jdbcType=OTHER},
-      </if>
-      <if test="typePolygon != null">
-        #{typePolygon,jdbcType=OTHER},
       </if>
       <if test="typeReal != null">
         #{typeReal,jdbcType=DOUBLE},
@@ -476,6 +453,15 @@
       <if test="typeGeometry != null">
         #{typeGeometry,jdbcType=BINARY},
       </if>
+      <if test="typeGeometrycollection != null">
+        #{typeGeometrycollection,jdbcType=BINARY},
+      </if>
+      <if test="typeJson != null">
+        #{typeJson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="typeLinestring != null">
+        #{typeLinestring,jdbcType=BINARY},
+      </if>
       <if test="typeLongblob != null">
         #{typeLongblob,jdbcType=LONGVARBINARY},
       </if>
@@ -488,11 +474,26 @@
       <if test="typeMediumtext != null">
         #{typeMediumtext,jdbcType=LONGVARCHAR},
       </if>
+      <if test="typeMultilinestring != null">
+        #{typeMultilinestring,jdbcType=BINARY},
+      </if>
+      <if test="typeMultipoint != null">
+        #{typeMultipoint,jdbcType=BINARY},
+      </if>
+      <if test="typeMultipolygon != null">
+        #{typeMultipolygon,jdbcType=BINARY},
+      </if>
+      <if test="typePoint != null">
+        #{typePoint,jdbcType=BINARY},
+      </if>
+      <if test="typePolygon != null">
+        #{typePolygon,jdbcType=BINARY},
+      </if>
       <if test="typeText != null">
         #{typeText,jdbcType=LONGVARCHAR},
       </if>
       <if test="typeTinyblob != null">
-        #{typeTinyblob,jdbcType=BINARY},
+        #{typeTinyblob,jdbcType=VARBINARY},
       </if>
       <if test="typeVarbinary != null">
         #{typeVarbinary,jdbcType=VARBINARY},
@@ -538,38 +539,14 @@
       <if test="record.typeFloat != null">
         type_float = #{record.typeFloat,jdbcType=REAL},
       </if>
-      <if test="record.typeGeometrycollection != null">
-        type_geometrycollection = #{record.typeGeometrycollection,jdbcType=OTHER},
-      </if>
       <if test="record.typeInteger != null">
         type_integer = #{record.typeInteger,jdbcType=INTEGER},
-      </if>
-      <if test="record.typeJson != null">
-        type_json = #{record.typeJson,jdbcType=CHAR},
-      </if>
-      <if test="record.typeLinestring != null">
-        type_linestring = #{record.typeLinestring,jdbcType=OTHER},
       </if>
       <if test="record.typeMediumint != null">
         type_mediumint = #{record.typeMediumint,jdbcType=INTEGER},
       </if>
-      <if test="record.typeMultilinestring != null">
-        type_multilinestring = #{record.typeMultilinestring,jdbcType=OTHER},
-      </if>
-      <if test="record.typeMultipoint != null">
-        type_multipoint = #{record.typeMultipoint,jdbcType=OTHER},
-      </if>
-      <if test="record.typeMultipolygon != null">
-        type_multipolygon = #{record.typeMultipolygon,jdbcType=OTHER},
-      </if>
       <if test="record.typeNumeric != null">
         type_numeric = #{record.typeNumeric,jdbcType=DECIMAL},
-      </if>
-      <if test="record.typePoint != null">
-        type_point = #{record.typePoint,jdbcType=OTHER},
-      </if>
-      <if test="record.typePolygon != null">
-        type_polygon = #{record.typePolygon,jdbcType=OTHER},
       </if>
       <if test="record.typeReal != null">
         type_real = #{record.typeReal,jdbcType=DOUBLE},
@@ -634,6 +611,15 @@
       <if test="record.typeGeometry != null">
         type_geometry = #{record.typeGeometry,jdbcType=BINARY},
       </if>
+      <if test="record.typeGeometrycollection != null">
+        type_geometrycollection = #{record.typeGeometrycollection,jdbcType=BINARY},
+      </if>
+      <if test="record.typeJson != null">
+        type_json = #{record.typeJson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.typeLinestring != null">
+        type_linestring = #{record.typeLinestring,jdbcType=BINARY},
+      </if>
       <if test="record.typeLongblob != null">
         type_longblob = #{record.typeLongblob,jdbcType=LONGVARBINARY},
       </if>
@@ -646,11 +632,26 @@
       <if test="record.typeMediumtext != null">
         type_mediumtext = #{record.typeMediumtext,jdbcType=LONGVARCHAR},
       </if>
+      <if test="record.typeMultilinestring != null">
+        type_multilinestring = #{record.typeMultilinestring,jdbcType=BINARY},
+      </if>
+      <if test="record.typeMultipoint != null">
+        type_multipoint = #{record.typeMultipoint,jdbcType=BINARY},
+      </if>
+      <if test="record.typeMultipolygon != null">
+        type_multipolygon = #{record.typeMultipolygon,jdbcType=BINARY},
+      </if>
+      <if test="record.typePoint != null">
+        type_point = #{record.typePoint,jdbcType=BINARY},
+      </if>
+      <if test="record.typePolygon != null">
+        type_polygon = #{record.typePolygon,jdbcType=BINARY},
+      </if>
       <if test="record.typeText != null">
         type_text = #{record.typeText,jdbcType=LONGVARCHAR},
       </if>
       <if test="record.typeTinyblob != null">
-        type_tinyblob = #{record.typeTinyblob,jdbcType=BINARY},
+        type_tinyblob = #{record.typeTinyblob,jdbcType=VARBINARY},
       </if>
       <if test="record.typeVarbinary != null">
         type_varbinary = #{record.typeVarbinary,jdbcType=VARBINARY},
@@ -672,17 +673,9 @@
       type_decimal = #{record.typeDecimal,jdbcType=DECIMAL},
       type_double = #{record.typeDouble,jdbcType=DOUBLE},
       type_float = #{record.typeFloat,jdbcType=REAL},
-      type_geometrycollection = #{record.typeGeometrycollection,jdbcType=OTHER},
       type_integer = #{record.typeInteger,jdbcType=INTEGER},
-      type_json = #{record.typeJson,jdbcType=CHAR},
-      type_linestring = #{record.typeLinestring,jdbcType=OTHER},
       type_mediumint = #{record.typeMediumint,jdbcType=INTEGER},
-      type_multilinestring = #{record.typeMultilinestring,jdbcType=OTHER},
-      type_multipoint = #{record.typeMultipoint,jdbcType=OTHER},
-      type_multipolygon = #{record.typeMultipolygon,jdbcType=OTHER},
       type_numeric = #{record.typeNumeric,jdbcType=DECIMAL},
-      type_point = #{record.typePoint,jdbcType=OTHER},
-      type_polygon = #{record.typePolygon,jdbcType=OTHER},
       type_real = #{record.typeReal,jdbcType=DOUBLE},
       type_time = #{record.typeTime,jdbcType=TIME},
       type_timestamp = #{record.typeTimestamp,jdbcType=TIMESTAMP},
@@ -704,12 +697,20 @@
       type_binary = #{record.typeBinary,jdbcType=BINARY},
       type_blob = #{record.typeBlob,jdbcType=LONGVARBINARY},
       type_geometry = #{record.typeGeometry,jdbcType=BINARY},
+      type_geometrycollection = #{record.typeGeometrycollection,jdbcType=BINARY},
+      type_json = #{record.typeJson,jdbcType=LONGVARCHAR},
+      type_linestring = #{record.typeLinestring,jdbcType=BINARY},
       type_longblob = #{record.typeLongblob,jdbcType=LONGVARBINARY},
       type_longtext = #{record.typeLongtext,jdbcType=LONGVARCHAR},
       type_mediumblob = #{record.typeMediumblob,jdbcType=LONGVARBINARY},
       type_mediumtext = #{record.typeMediumtext,jdbcType=LONGVARCHAR},
+      type_multilinestring = #{record.typeMultilinestring,jdbcType=BINARY},
+      type_multipoint = #{record.typeMultipoint,jdbcType=BINARY},
+      type_multipolygon = #{record.typeMultipolygon,jdbcType=BINARY},
+      type_point = #{record.typePoint,jdbcType=BINARY},
+      type_polygon = #{record.typePolygon,jdbcType=BINARY},
       type_text = #{record.typeText,jdbcType=LONGVARCHAR},
-      type_tinyblob = #{record.typeTinyblob,jdbcType=BINARY},
+      type_tinyblob = #{record.typeTinyblob,jdbcType=VARBINARY},
       type_varbinary = #{record.typeVarbinary,jdbcType=VARBINARY}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -727,17 +728,9 @@
       type_decimal = #{record.typeDecimal,jdbcType=DECIMAL},
       type_double = #{record.typeDouble,jdbcType=DOUBLE},
       type_float = #{record.typeFloat,jdbcType=REAL},
-      type_geometrycollection = #{record.typeGeometrycollection,jdbcType=OTHER},
       type_integer = #{record.typeInteger,jdbcType=INTEGER},
-      type_json = #{record.typeJson,jdbcType=CHAR},
-      type_linestring = #{record.typeLinestring,jdbcType=OTHER},
       type_mediumint = #{record.typeMediumint,jdbcType=INTEGER},
-      type_multilinestring = #{record.typeMultilinestring,jdbcType=OTHER},
-      type_multipoint = #{record.typeMultipoint,jdbcType=OTHER},
-      type_multipolygon = #{record.typeMultipolygon,jdbcType=OTHER},
       type_numeric = #{record.typeNumeric,jdbcType=DECIMAL},
-      type_point = #{record.typePoint,jdbcType=OTHER},
-      type_polygon = #{record.typePolygon,jdbcType=OTHER},
       type_real = #{record.typeReal,jdbcType=DOUBLE},
       type_time = #{record.typeTime,jdbcType=TIME},
       type_timestamp = #{record.typeTimestamp,jdbcType=TIMESTAMP},
@@ -790,38 +783,14 @@
       <if test="typeFloat != null">
         type_float = #{typeFloat,jdbcType=REAL},
       </if>
-      <if test="typeGeometrycollection != null">
-        type_geometrycollection = #{typeGeometrycollection,jdbcType=OTHER},
-      </if>
       <if test="typeInteger != null">
         type_integer = #{typeInteger,jdbcType=INTEGER},
-      </if>
-      <if test="typeJson != null">
-        type_json = #{typeJson,jdbcType=CHAR},
-      </if>
-      <if test="typeLinestring != null">
-        type_linestring = #{typeLinestring,jdbcType=OTHER},
       </if>
       <if test="typeMediumint != null">
         type_mediumint = #{typeMediumint,jdbcType=INTEGER},
       </if>
-      <if test="typeMultilinestring != null">
-        type_multilinestring = #{typeMultilinestring,jdbcType=OTHER},
-      </if>
-      <if test="typeMultipoint != null">
-        type_multipoint = #{typeMultipoint,jdbcType=OTHER},
-      </if>
-      <if test="typeMultipolygon != null">
-        type_multipolygon = #{typeMultipolygon,jdbcType=OTHER},
-      </if>
       <if test="typeNumeric != null">
         type_numeric = #{typeNumeric,jdbcType=DECIMAL},
-      </if>
-      <if test="typePoint != null">
-        type_point = #{typePoint,jdbcType=OTHER},
-      </if>
-      <if test="typePolygon != null">
-        type_polygon = #{typePolygon,jdbcType=OTHER},
       </if>
       <if test="typeReal != null">
         type_real = #{typeReal,jdbcType=DOUBLE},
@@ -886,6 +855,15 @@
       <if test="typeGeometry != null">
         type_geometry = #{typeGeometry,jdbcType=BINARY},
       </if>
+      <if test="typeGeometrycollection != null">
+        type_geometrycollection = #{typeGeometrycollection,jdbcType=BINARY},
+      </if>
+      <if test="typeJson != null">
+        type_json = #{typeJson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="typeLinestring != null">
+        type_linestring = #{typeLinestring,jdbcType=BINARY},
+      </if>
       <if test="typeLongblob != null">
         type_longblob = #{typeLongblob,jdbcType=LONGVARBINARY},
       </if>
@@ -898,11 +876,26 @@
       <if test="typeMediumtext != null">
         type_mediumtext = #{typeMediumtext,jdbcType=LONGVARCHAR},
       </if>
+      <if test="typeMultilinestring != null">
+        type_multilinestring = #{typeMultilinestring,jdbcType=BINARY},
+      </if>
+      <if test="typeMultipoint != null">
+        type_multipoint = #{typeMultipoint,jdbcType=BINARY},
+      </if>
+      <if test="typeMultipolygon != null">
+        type_multipolygon = #{typeMultipolygon,jdbcType=BINARY},
+      </if>
+      <if test="typePoint != null">
+        type_point = #{typePoint,jdbcType=BINARY},
+      </if>
+      <if test="typePolygon != null">
+        type_polygon = #{typePolygon,jdbcType=BINARY},
+      </if>
       <if test="typeText != null">
         type_text = #{typeText,jdbcType=LONGVARCHAR},
       </if>
       <if test="typeTinyblob != null">
-        type_tinyblob = #{typeTinyblob,jdbcType=BINARY},
+        type_tinyblob = #{typeTinyblob,jdbcType=VARBINARY},
       </if>
       <if test="typeVarbinary != null">
         type_varbinary = #{typeVarbinary,jdbcType=VARBINARY},
@@ -921,17 +914,9 @@
       type_decimal = #{typeDecimal,jdbcType=DECIMAL},
       type_double = #{typeDouble,jdbcType=DOUBLE},
       type_float = #{typeFloat,jdbcType=REAL},
-      type_geometrycollection = #{typeGeometrycollection,jdbcType=OTHER},
       type_integer = #{typeInteger,jdbcType=INTEGER},
-      type_json = #{typeJson,jdbcType=CHAR},
-      type_linestring = #{typeLinestring,jdbcType=OTHER},
       type_mediumint = #{typeMediumint,jdbcType=INTEGER},
-      type_multilinestring = #{typeMultilinestring,jdbcType=OTHER},
-      type_multipoint = #{typeMultipoint,jdbcType=OTHER},
-      type_multipolygon = #{typeMultipolygon,jdbcType=OTHER},
       type_numeric = #{typeNumeric,jdbcType=DECIMAL},
-      type_point = #{typePoint,jdbcType=OTHER},
-      type_polygon = #{typePolygon,jdbcType=OTHER},
       type_real = #{typeReal,jdbcType=DOUBLE},
       type_time = #{typeTime,jdbcType=TIME},
       type_timestamp = #{typeTimestamp,jdbcType=TIMESTAMP},
@@ -953,12 +938,20 @@
       type_binary = #{typeBinary,jdbcType=BINARY},
       type_blob = #{typeBlob,jdbcType=LONGVARBINARY},
       type_geometry = #{typeGeometry,jdbcType=BINARY},
+      type_geometrycollection = #{typeGeometrycollection,jdbcType=BINARY},
+      type_json = #{typeJson,jdbcType=LONGVARCHAR},
+      type_linestring = #{typeLinestring,jdbcType=BINARY},
       type_longblob = #{typeLongblob,jdbcType=LONGVARBINARY},
       type_longtext = #{typeLongtext,jdbcType=LONGVARCHAR},
       type_mediumblob = #{typeMediumblob,jdbcType=LONGVARBINARY},
       type_mediumtext = #{typeMediumtext,jdbcType=LONGVARCHAR},
+      type_multilinestring = #{typeMultilinestring,jdbcType=BINARY},
+      type_multipoint = #{typeMultipoint,jdbcType=BINARY},
+      type_multipolygon = #{typeMultipolygon,jdbcType=BINARY},
+      type_point = #{typePoint,jdbcType=BINARY},
+      type_polygon = #{typePolygon,jdbcType=BINARY},
       type_text = #{typeText,jdbcType=LONGVARCHAR},
-      type_tinyblob = #{typeTinyblob,jdbcType=BINARY},
+      type_tinyblob = #{typeTinyblob,jdbcType=VARBINARY},
       type_varbinary = #{typeVarbinary,jdbcType=VARBINARY}
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -973,17 +966,9 @@
       type_decimal = #{typeDecimal,jdbcType=DECIMAL},
       type_double = #{typeDouble,jdbcType=DOUBLE},
       type_float = #{typeFloat,jdbcType=REAL},
-      type_geometrycollection = #{typeGeometrycollection,jdbcType=OTHER},
       type_integer = #{typeInteger,jdbcType=INTEGER},
-      type_json = #{typeJson,jdbcType=CHAR},
-      type_linestring = #{typeLinestring,jdbcType=OTHER},
       type_mediumint = #{typeMediumint,jdbcType=INTEGER},
-      type_multilinestring = #{typeMultilinestring,jdbcType=OTHER},
-      type_multipoint = #{typeMultipoint,jdbcType=OTHER},
-      type_multipolygon = #{typeMultipolygon,jdbcType=OTHER},
       type_numeric = #{typeNumeric,jdbcType=DECIMAL},
-      type_point = #{typePoint,jdbcType=OTHER},
-      type_polygon = #{typePolygon,jdbcType=OTHER},
       type_real = #{typeReal,jdbcType=DOUBLE},
       type_time = #{typeTime,jdbcType=TIME},
       type_timestamp = #{typeTimestamp,jdbcType=TIMESTAMP},

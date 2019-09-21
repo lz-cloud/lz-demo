@@ -1,4 +1,4 @@
-package com.wkclz.demo.controller.custom;
+package com.wkclz.demo.rest.custom;
 
 import com.wkclz.core.base.annotation.Desc;
 

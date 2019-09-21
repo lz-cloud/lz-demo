@@ -1,4 +1,4 @@
-package com.wkclz.demo.controller.custom;
+package com.wkclz.demo.rest.custom;
 
 import com.wkclz.core.base.BaseModel;
 import com.wkclz.core.base.PageData;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  * @table: demo_types (demo-全类型)
  */
 @RestController
-public class DemoTypesController {
+public class DemoTypesRest {
 
     @Autowired
     private DemoTypesRepo demoTypesRepo;
