@@ -9,7 +9,7 @@ public class GenCode {
 
     public static void main(String[] args) {
         // 代码生成
-        GenHelper.genCodde(AUTH_CODE);
+        GenHelper.genCode(AUTH_CODE);
     }
 
 }
