@@ -76,6 +76,10 @@
         <repository>
             <id>github-mvn</id>
             <url>https://github.com/wkclz/mvn-repository/raw/master</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
         </repository>
     </repositories>
 
