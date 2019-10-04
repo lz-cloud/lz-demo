@@ -1,8 +1,5 @@
 package com.wkclz.demo.pojo.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import org.springframework.format.annotation.DateTimeFormat;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.wkclz.core.base.BaseModel;
 import com.wkclz.core.util.StringUtil;
 import lombok.Data;
@@ -20,7 +17,6 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DemoTypes extends BaseModel {
 
     /**
@@ -61,15 +57,11 @@ public class DemoTypes extends BaseModel {
     /**
      * type_date
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date typeDate;
 
     /**
      * type_datetime
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date typeDatetime;
 
     /**
@@ -180,15 +172,11 @@ public class DemoTypes extends BaseModel {
     /**
      * type_time
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date typeTime;
 
     /**
      * type_timestamp
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date typeTimestamp;
 
     /**
@@ -219,8 +207,6 @@ public class DemoTypes extends BaseModel {
     /**
      * type_year
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date typeYear;
 
     /**
@@ -236,22 +222,16 @@ public class DemoTypes extends BaseModel {
     /**
      * 可用开始
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date enableBegin;
 
     /**
      * 可用结束
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date enableEnd;
 
     /**
      * 创建时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**
