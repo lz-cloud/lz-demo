@@ -486,13 +486,13 @@ public class DemoTypesRest {
      */
     @PostMapping("/demo/types/new")
     @Transactional(rollbackFor = Exception.class)
-    public Result demoTypesNew(HttpServletRequest req, @RequestBody DemoTypes model){
+    public Result demoTypesNew(@RequestBody DemoTypes model){
         Result result = new Result();
 
         // 按需添加限制条件
 
         model.setId(null);
-        Long id = demoTypesRepo.insert(model, req);
+        Long id = demoTypesRepo.insert(model);
         model.setId(id);
         return result.setData(model);
     }
@@ -620,7 +620,7 @@ public class DemoTypesRest {
         }
         DemoTypes.copyIfNotNull(model, target);
 
-        demoTypesRepo.update(target,req);
+        demoTypesRepo.update(target);
         return result.setData(model);
     }
 
@@ -741,7 +741,7 @@ public class DemoTypesRest {
         // 条件判断
 
         if (model.getId() == null){
-            Long id = demoTypesRepo.insert(model, req);
+            Long id = demoTypesRepo.insert(model);
             model.setId(id);
         } else {
             DemoTypes data = demoTypesRepo.get(model.getId());
@@ -749,7 +749,7 @@ public class DemoTypesRest {
                 return result.setError("id错误，数据不存在");
             }
             DemoTypes.copyIfNotNull(model, data);
-            demoTypesRepo.update(data, req);
+            demoTypesRepo.update(data);
         }
         return result.setData(model);
 
@@ -780,12 +780,12 @@ public class DemoTypesRest {
      */
     @PostMapping("/demo/types/remove")
     @Transactional(rollbackFor = Exception.class)
-    public Result demoTypesRemove(HttpServletRequest req, @RequestBody BaseModel model){
+    public Result demoTypesRemove(@RequestBody BaseModel model){
         Result result = BaseHelper.removeCheck(model);
         if (result.getError()!=null){
             return result;
         }
-        Integer rt = demoTypesRepo.del(model.getIds(),req);
+        Integer rt = demoTypesRepo.del(model.getIds());
         return result.setData(rt);
     }
 

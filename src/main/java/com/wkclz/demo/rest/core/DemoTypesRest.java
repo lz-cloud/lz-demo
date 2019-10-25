@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.servlet.http.HttpServletRequest;
-
 
 /**
  * Description: Create by Shrimp Generator
@@ -44,7 +42,6 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>param</code>type_double
      * @apiParam {Float} [typeFloat] <code>param</code>type_float
      * @apiParam {Integer} [typeInteger] <code>param</code>type_integer
-     * @apiParam {String} [typeJson] <code>param</code>type_json
      * @apiParam {Integer} [typeMediumint] <code>param</code>type_mediumint
      * @apiParam {BigDecimal} [typeNumeric] <code>param</code>type_numeric
      * @apiParam {Double} [typeReal] <code>param</code>type_real
@@ -80,7 +77,7 @@ public class DemoTypesRest {
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
      * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
-     * @apiSuccess {String} [typeJson] type_json
+     * @apiSuccess {String} [typeJson] type_json [MBG不支持JSON]
      * @apiSuccess {byte[]} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
@@ -198,7 +195,6 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>param</code>type_double
      * @apiParam {Float} [typeFloat] <code>param</code>type_float
      * @apiParam {Integer} [typeInteger] <code>param</code>type_integer
-     * @apiParam {String} [typeJson] <code>param</code>type_json
      * @apiParam {Integer} [typeMediumint] <code>param</code>type_mediumint
      * @apiParam {BigDecimal} [typeNumeric] <code>param</code>type_numeric
      * @apiParam {Double} [typeReal] <code>param</code>type_real
@@ -265,7 +261,7 @@ public class DemoTypesRest {
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
      * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
-     * @apiSuccess {String} [typeJson] type_json
+     * @apiSuccess {String} [typeJson] type_json [MBG不支持JSON]
      * @apiSuccess {byte[]} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
@@ -383,7 +379,7 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
      * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
-     * @apiParam {String} [typeJson] <code>body</code>type_json
+     * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
      * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
@@ -471,13 +467,13 @@ public class DemoTypesRest {
      */
     @PostMapping("/demo/types/new")
     @Transactional(rollbackFor = Exception.class)
-    public Result demoTypesNew(HttpServletRequest req, @RequestBody DemoTypes model){
+    public Result demoTypesNew(@RequestBody DemoTypes model){
         Result result = new Result();
 
         // 按需添加限制条件
 
         model.setId(null);
-        Long id = demoTypesRepo.insert(model, req);
+        Long id = demoTypesRepo.insert(model);
         model.setId(id);
         return result.setData(model);
     }
@@ -504,7 +500,7 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
      * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
-     * @apiParam {String} [typeJson] <code>body</code>type_json
+     * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
      * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
@@ -593,7 +589,7 @@ public class DemoTypesRest {
      */
     @PostMapping("/demo/types/update")
     @Transactional(rollbackFor = Exception.class)
-    public Result demoTypesUpdate(HttpServletRequest req, @RequestBody DemoTypes model){
+    public Result demoTypesUpdate(@RequestBody DemoTypes model){
         Result result = new Result();
 
         if (model.getId() == null){
@@ -605,7 +601,7 @@ public class DemoTypesRest {
         }
         DemoTypes.copyIfNotNull(model, target);
 
-        demoTypesRepo.update(target,req);
+        demoTypesRepo.update(target);
         return result.setData(model);
     }
 
@@ -631,7 +627,7 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
      * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
-     * @apiParam {String} [typeJson] <code>body</code>type_json
+     * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
      * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
@@ -720,13 +716,13 @@ public class DemoTypesRest {
      */
     @PostMapping("/demo/types/save")
     @Transactional(rollbackFor = Exception.class)
-    public Result demoTypesSave(HttpServletRequest req, @RequestBody DemoTypes model){
+    public Result demoTypesSave(@RequestBody DemoTypes model){
         Result result = new Result();
 
         // 条件判断
 
         if (model.getId() == null){
-            Long id = demoTypesRepo.insert(model, req);
+            Long id = demoTypesRepo.insert(model);
             model.setId(id);
         } else {
             DemoTypes data = demoTypesRepo.get(model.getId());
@@ -734,7 +730,7 @@ public class DemoTypesRest {
                 return result.setError("id错误，数据不存在");
             }
             DemoTypes.copyIfNotNull(model, data);
-            demoTypesRepo.update(data, req);
+            demoTypesRepo.update(data);
         }
         return result.setData(model);
 
@@ -765,12 +761,12 @@ public class DemoTypesRest {
      */
     @PostMapping("/demo/types/remove")
     @Transactional(rollbackFor = Exception.class)
-    public Result demoTypesRemove(HttpServletRequest req, @RequestBody BaseModel model){
+    public Result demoTypesRemove(@RequestBody BaseModel model){
         Result result = BaseHelper.removeCheck(model);
         if (result.getError()!=null){
             return result;
         }
-        Integer rt = demoTypesRepo.del(model.getIds(),req);
+        Integer rt = demoTypesRepo.del(model.getIds());
         return result.setData(rt);
     }
 
