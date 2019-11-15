@@ -1,6 +1,5 @@
 package com.wkclz.demo.pojo.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.wkclz.demo.pojo.entity.DemoTypes;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,7 +12,6 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DemoTypesDto extends DemoTypes {
 
 

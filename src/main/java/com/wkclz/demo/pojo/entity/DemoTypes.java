@@ -209,41 +209,6 @@ public class DemoTypes extends BaseModel {
      */
     private Date typeYear;
 
-    /**
-     * 排序
-     */
-    private Integer sort;
-
-    /**
-     * 可用状态
-     */
-    private Integer enableFlag;
-
-    /**
-     * 可用开始
-     */
-    private Date enableBegin;
-
-    /**
-     * 可用结束
-     */
-    private Date enableEnd;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 备注
-     */
-    private String comments;
-
-    /**
-     * 版本号
-     */
-    private Integer version;
-
 
     public static DemoTypes copy(DemoTypes source, DemoTypes target){
         if (target == null ){ target = new DemoTypes();}
@@ -286,13 +251,6 @@ public class DemoTypes extends BaseModel {
         target.setTypeVarbinary(source.getTypeVarbinary());
         target.setTypeVarchar(source.getTypeVarchar());
         target.setTypeYear(source.getTypeYear());
-        target.setSort(source.getSort());
-        target.setEnableFlag(source.getEnableFlag());
-        target.setEnableBegin(source.getEnableBegin());
-        target.setEnableEnd(source.getEnableEnd());
-        target.setCreateTime(source.getCreateTime());
-        target.setComments(source.getComments());
-        target.setVersion(source.getVersion());
         return target;
     }
 
@@ -337,13 +295,6 @@ public class DemoTypes extends BaseModel {
         if (source.getTypeVarbinary() != null){ target.setTypeVarbinary(source.getTypeVarbinary()); }
         if (source.getTypeVarchar() != null){ target.setTypeVarchar(source.getTypeVarchar()); }
         if (source.getTypeYear() != null){ target.setTypeYear(source.getTypeYear()); }
-        if (source.getSort() != null){ target.setSort(source.getSort()); }
-        if (source.getEnableFlag() != null){ target.setEnableFlag(source.getEnableFlag()); }
-        if (source.getEnableBegin() != null){ target.setEnableBegin(source.getEnableBegin()); }
-        if (source.getEnableEnd() != null){ target.setEnableEnd(source.getEnableEnd()); }
-        if (source.getCreateTime() != null){ target.setCreateTime(source.getCreateTime()); }
-        if (source.getComments() != null){ target.setComments(source.getComments()); }
-        if (source.getVersion() != null){ target.setVersion(source.getVersion()); }
         return target;
     }
 
@@ -388,13 +339,6 @@ public class DemoTypes extends BaseModel {
         if (model.getTypeTinytext()!=null){ criteria.andTypeTinytextEqualTo(model.getTypeTinytext()); }
         if (model.getTypeVarchar()!=null){ criteria.andTypeVarcharEqualTo(model.getTypeVarchar()); }
         if (model.getTypeYear()!=null){ criteria.andTypeYearEqualTo(model.getTypeYear()); }
-        if (model.getSort()!=null){ criteria.andSortEqualTo(model.getSort()); }
-        if (model.getEnableFlag()!=null){ criteria.andEnableFlagEqualTo(model.getEnableFlag()); }
-        if (model.getEnableBegin()!=null){ criteria.andEnableBeginEqualTo(model.getEnableBegin()); }
-        if (model.getEnableEnd()!=null){ criteria.andEnableEndEqualTo(model.getEnableEnd()); }
-        if (model.getCreateTime()!=null){ criteria.andCreateTimeEqualTo(model.getCreateTime()); }
-        if (model.getComments()!=null){ criteria.andCommentsEqualTo(model.getComments()); }
-        if (model.getVersion()!=null){ criteria.andVersionEqualTo(model.getVersion()); }
 
         // BASE
         if (model.getTimeFrom() != null ) { criteria.andCreateTimeGreaterThanOrEqualTo(model.getTimeFrom()); }

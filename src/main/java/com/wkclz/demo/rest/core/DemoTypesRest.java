@@ -51,13 +51,6 @@ public class DemoTypesRest {
      * @apiParam {String} [typeTinytext] <code>param</code>type_tinytext
      * @apiParam {String} [typeVarchar] <code>param</code>type_varchar
      * @apiParam {Date} [typeYear] <code>param</code>type_year
-     * @apiParam {Integer} [sort] <code>param</code>排序
-     * @apiParam {Integer} [enableFlag] <code>param</code>可用状态
-     * @apiParam {Date} [enableBegin] <code>param</code>可用开始
-     * @apiParam {Date} [enableEnd] <code>param</code>可用结束
-     * @apiParam {Date} [createTime] <code>param</code>创建时间
-     * @apiParam {String} [comments] <code>param</code>备注
-     * @apiParam {Integer} [version] <code>param</code>版本号
      *
      * @apiParamExample {param} 请求样例:
      * ?id=1
@@ -100,13 +93,6 @@ public class DemoTypesRest {
      * @apiSuccess {byte[]} [typeVarbinary] type_varbinary
      * @apiSuccess {String} [typeVarchar] type_varchar
      * @apiSuccess {Date} [typeYear] type_year
-     * @apiSuccess {Integer} [sort] 排序
-     * @apiSuccess {Integer} [enableFlag] 可用状态
-     * @apiSuccess {Date} [enableBegin] 可用开始
-     * @apiSuccess {Date} [enableEnd] 可用结束
-     * @apiSuccess {Date} [createTime] 创建时间
-     * @apiSuccess {String} [comments] 备注
-     * @apiSuccess {Integer} [version] 版本号
      *
      * @apiSuccessExample {json} 返回样例:
      * {
@@ -152,13 +138,6 @@ public class DemoTypesRest {
      *                 "typeVarbinary": "typeVarbinary",
      *                 "typeVarchar": "typeVarchar",
      *                 "typeYear": "typeYear",
-     *                 "sort": "sort",
-     *                 "enableFlag": "enableFlag",
-     *                 "enableBegin": "enableBegin",
-     *                 "enableEnd": "enableEnd",
-     *                 "createTime": "createTime",
-     *                 "comments": "comments",
-     *                 "version": "version",
      *             },
      *             ...
      *         ],
@@ -204,13 +183,6 @@ public class DemoTypesRest {
      * @apiParam {String} [typeTinytext] <code>param</code>type_tinytext
      * @apiParam {String} [typeVarchar] <code>param</code>type_varchar
      * @apiParam {Date} [typeYear] <code>param</code>type_year
-     * @apiParam {Integer} [sort] <code>param</code>排序
-     * @apiParam {Integer} [enableFlag] <code>param</code>可用状态
-     * @apiParam {Date} [enableBegin] <code>param</code>可用开始
-     * @apiParam {Date} [enableEnd] <code>param</code>可用结束
-     * @apiParam {Date} [createTime] <code>param</code>创建时间
-     * @apiParam {String} [comments] <code>param</code>备注
-     * @apiParam {Integer} [version] <code>param</code>版本号
      *
      * @apiParamExample {param} 请求样例:
      * ?id=1
@@ -284,13 +256,6 @@ public class DemoTypesRest {
      * @apiSuccess {byte[]} [typeVarbinary] type_varbinary
      * @apiSuccess {String} [typeVarchar] type_varchar
      * @apiSuccess {Date} [typeYear] type_year
-     * @apiSuccess {Integer} [sort] 排序
-     * @apiSuccess {Integer} [enableFlag] 可用状态
-     * @apiSuccess {Date} [enableBegin] 可用开始
-     * @apiSuccess {Date} [enableEnd] 可用结束
-     * @apiSuccess {Date} [createTime] 创建时间
-     * @apiSuccess {String} [comments] 备注
-     * @apiSuccess {Integer} [version] 版本号
      *
      * @apiSuccessExample {json} 返回样例:
      * {
@@ -334,13 +299,6 @@ public class DemoTypesRest {
      *          "typeVarbinary": "typeVarbinary",
      *          "typeVarchar": "typeVarchar",
      *          "typeYear": "typeYear",
-     *          "sort": "sort",
-     *          "enableFlag": "enableFlag",
-     *          "enableBegin": "enableBegin",
-     *          "enableEnd": "enableEnd",
-     *          "createTime": "createTime",
-     *          "comments": "comments",
-     *          "version": "version",
      *     }
      * }
      *
@@ -402,13 +360,6 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeVarbinary] <code>body</code>type_varbinary
      * @apiParam {String} [typeVarchar] <code>body</code>type_varchar
      * @apiParam {Date} [typeYear] <code>body</code>type_year
-     * @apiParam {Integer} [sort] <code>body</code>排序
-     * @apiParam {Integer} [enableFlag] <code>body</code>可用状态
-     * @apiParam {Date} [enableBegin] <code>body</code>可用开始
-     * @apiParam {Date} [enableEnd] <code>body</code>可用结束
-     * @apiParam {Date} [createTime] <code>body</code>创建时间
-     * @apiParam {String} [comments] <code>body</code>备注
-     * @apiParam {Integer} [version] <code>body</code>版本号
      *
      * @apiParamExample {json} 请求样例:
      * {
@@ -449,13 +400,6 @@ public class DemoTypesRest {
      *      "typeVarbinary": "typeVarbinary",
      *      "typeVarchar": "typeVarchar",
      *      "typeYear": "typeYear",
-     *      "sort": "sort",
-     *      "enableFlag": "enableFlag",
-     *      "enableBegin": "enableBegin",
-     *      "enableEnd": "enableEnd",
-     *      "createTime": "createTime",
-     *      "comments": "comments",
-     *      "version": "version",
      * }
      *
      * @apiSuccessExample {json} 返回样例:
@@ -523,13 +467,6 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeVarbinary] <code>body</code>type_varbinary
      * @apiParam {String} [typeVarchar] <code>body</code>type_varchar
      * @apiParam {Date} [typeYear] <code>body</code>type_year
-     * @apiParam {Integer} [sort] <code>body</code>排序
-     * @apiParam {Integer} [enableFlag] <code>body</code>可用状态
-     * @apiParam {Date} [enableBegin] <code>body</code>可用开始
-     * @apiParam {Date} [enableEnd] <code>body</code>可用结束
-     * @apiParam {Date} [createTime] <code>body</code>创建时间
-     * @apiParam {String} [comments] <code>body</code>备注
-     * @apiParam {Integer} [version] <code>body</code>版本号
      *
      * @apiParamExample {json} 请求样例:
      * {
@@ -571,13 +508,6 @@ public class DemoTypesRest {
      *      "typeVarbinary": "typeVarbinary",
      *      "typeVarchar": "typeVarchar",
      *      "typeYear": "typeYear",
-     *      "sort": "sort",
-     *      "enableFlag": "enableFlag",
-     *      "enableBegin": "enableBegin",
-     *      "enableEnd": "enableEnd",
-     *      "createTime": "createTime",
-     *      "comments": "comments",
-     *      "version": "version",
      * }
      *
      * @apiSuccessExample {json} 返回样例:
@@ -650,13 +580,6 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeVarbinary] <code>body</code>type_varbinary
      * @apiParam {String} [typeVarchar] <code>body</code>type_varchar
      * @apiParam {Date} [typeYear] <code>body</code>type_year
-     * @apiParam {Integer} [sort] <code>body</code>排序
-     * @apiParam {Integer} [enableFlag] <code>body</code>可用状态
-     * @apiParam {Date} [enableBegin] <code>body</code>可用开始
-     * @apiParam {Date} [enableEnd] <code>body</code>可用结束
-     * @apiParam {Date} [createTime] <code>body</code>创建时间
-     * @apiParam {String} [comments] <code>body</code>备注
-     * @apiParam {Integer} [version] <code>body</code>版本号
      *
      * @apiParamExample {json} 请求样例:
      * {
@@ -698,13 +621,6 @@ public class DemoTypesRest {
      *      "typeVarbinary": "typeVarbinary",
      *      "typeVarchar": "typeVarchar",
      *      "typeYear": "typeYear",
-     *      "sort": "sort",
-     *      "enableFlag": "enableFlag",
-     *      "enableBegin": "enableBegin",
-     *      "enableEnd": "enableEnd",
-     *      "createTime": "createTime",
-     *      "comments": "comments",
-     *      "version": "version",
      * }
      *
      * @apiSuccessExample {json} 返回样例:

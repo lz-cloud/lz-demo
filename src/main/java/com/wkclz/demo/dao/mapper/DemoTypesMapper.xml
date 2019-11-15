@@ -23,13 +23,10 @@
     <result column="type_varchar" jdbcType="VARCHAR" property="typeVarchar" />
     <result column="type_year" jdbcType="DATE" property="typeYear" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
-    <result column="enable_flag" jdbcType="INTEGER" property="enableFlag" />
-    <result column="enable_begin" jdbcType="TIMESTAMP" property="enableBegin" />
-    <result column="enable_end" jdbcType="TIMESTAMP" property="enableEnd" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="create_by" jdbcType="BIGINT" property="createBy" />
-    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
-    <result column="last_update_by" jdbcType="BIGINT" property="lastUpdateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
     <result column="comments" jdbcType="VARCHAR" property="comments" />
     <result column="version" jdbcType="INTEGER" property="version" />
     <result column="status" jdbcType="INTEGER" property="status" />
@@ -115,9 +112,8 @@
   <sql id="Base_Column_List">
     id, type_int, type_bigint, type_bit, type_char, type_date, type_datetime, type_decimal, 
     type_double, type_float, type_integer, type_mediumint, type_numeric, type_real, type_time, 
-    type_timestamp, type_tinyint, type_tinytext, type_varchar, type_year, sort, enable_flag, 
-    enable_begin, enable_end, create_time, create_by, last_update_time, last_update_by, 
-    comments, version, status
+    type_timestamp, type_tinyint, type_tinytext, type_varchar, type_year, sort, create_time, 
+    create_by, update_time, update_by, comments, version, status
   </sql>
   <sql id="Blob_Column_List">
     type_binary, type_blob, type_geometry, type_geometrycollection, type_json, type_linestring, 
@@ -173,9 +169,8 @@
       type_integer, type_mediumint, type_numeric, 
       type_real, type_time, type_timestamp, 
       type_tinyint, type_tinytext, type_varchar, 
-      type_year, sort, enable_flag, 
-      enable_begin, enable_end, create_time, 
-      create_by, last_update_time, last_update_by, 
+      type_year, sort, create_time, 
+      create_by, update_time, update_by, 
       comments, version, status, 
       type_binary, type_blob, type_geometry, 
       type_geometrycollection, type_json, type_linestring, 
@@ -190,9 +185,8 @@
       #{typeInteger,jdbcType=INTEGER}, #{typeMediumint,jdbcType=INTEGER}, #{typeNumeric,jdbcType=DECIMAL}, 
       #{typeReal,jdbcType=DOUBLE}, #{typeTime,jdbcType=TIME}, #{typeTimestamp,jdbcType=TIMESTAMP}, 
       #{typeTinyint,jdbcType=TINYINT}, #{typeTinytext,jdbcType=VARCHAR}, #{typeVarchar,jdbcType=VARCHAR}, 
-      #{typeYear,jdbcType=DATE}, #{sort,jdbcType=INTEGER}, #{enableFlag,jdbcType=INTEGER}, 
-      #{enableBegin,jdbcType=TIMESTAMP}, #{enableEnd,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{createBy,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=BIGINT}, 
+      #{typeYear,jdbcType=DATE}, #{sort,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, 
       #{comments,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
       #{typeBinary,jdbcType=BINARY}, #{typeBlob,jdbcType=LONGVARBINARY}, #{typeGeometry,jdbcType=BINARY}, 
       #{typeGeometrycollection,jdbcType=BINARY}, #{typeJson,jdbcType=LONGVARCHAR}, #{typeLinestring,jdbcType=BINARY}, 
@@ -268,26 +262,17 @@
       <if test="sort != null">
         sort,
       </if>
-      <if test="enableFlag != null">
-        enable_flag,
-      </if>
-      <if test="enableBegin != null">
-        enable_begin,
-      </if>
-      <if test="enableEnd != null">
-        enable_end,
-      </if>
       <if test="createTime != null">
         create_time,
       </if>
       <if test="createBy != null">
         create_by,
       </if>
-      <if test="lastUpdateTime != null">
-        last_update_time,
+      <if test="updateTime != null">
+        update_time,
       </if>
-      <if test="lastUpdateBy != null">
-        last_update_by,
+      <if test="updateBy != null">
+        update_by,
       </if>
       <if test="comments != null">
         comments,
@@ -414,26 +399,17 @@
       <if test="sort != null">
         #{sort,jdbcType=INTEGER},
       </if>
-      <if test="enableFlag != null">
-        #{enableFlag,jdbcType=INTEGER},
-      </if>
-      <if test="enableBegin != null">
-        #{enableBegin,jdbcType=TIMESTAMP},
-      </if>
-      <if test="enableEnd != null">
-        #{enableEnd,jdbcType=TIMESTAMP},
-      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createBy != null">
         #{createBy,jdbcType=BIGINT},
       </if>
-      <if test="lastUpdateTime != null">
-        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastUpdateBy != null">
-        #{lastUpdateBy,jdbcType=BIGINT},
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=BIGINT},
       </if>
       <if test="comments != null">
         #{comments,jdbcType=VARCHAR},
@@ -572,26 +548,17 @@
       <if test="record.sort != null">
         sort = #{record.sort,jdbcType=INTEGER},
       </if>
-      <if test="record.enableFlag != null">
-        enable_flag = #{record.enableFlag,jdbcType=INTEGER},
-      </if>
-      <if test="record.enableBegin != null">
-        enable_begin = #{record.enableBegin,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.enableEnd != null">
-        enable_end = #{record.enableEnd,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createBy != null">
         create_by = #{record.createBy,jdbcType=BIGINT},
       </if>
-      <if test="record.lastUpdateTime != null">
-        last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.lastUpdateBy != null">
-        last_update_by = #{record.lastUpdateBy,jdbcType=BIGINT},
+      <if test="record.updateBy != null">
+        update_by = #{record.updateBy,jdbcType=BIGINT},
       </if>
       <if test="record.comments != null">
         comments = #{record.comments,jdbcType=VARCHAR},
@@ -684,13 +651,10 @@
       type_varchar = #{record.typeVarchar,jdbcType=VARCHAR},
       type_year = #{record.typeYear,jdbcType=DATE},
       sort = #{record.sort,jdbcType=INTEGER},
-      enable_flag = #{record.enableFlag,jdbcType=INTEGER},
-      enable_begin = #{record.enableBegin,jdbcType=TIMESTAMP},
-      enable_end = #{record.enableEnd,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       create_by = #{record.createBy,jdbcType=BIGINT},
-      last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
-      last_update_by = #{record.lastUpdateBy,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=BIGINT},
       comments = #{record.comments,jdbcType=VARCHAR},
       version = #{record.version,jdbcType=INTEGER},
       status = #{record.status,jdbcType=INTEGER},
@@ -739,13 +703,10 @@
       type_varchar = #{record.typeVarchar,jdbcType=VARCHAR},
       type_year = #{record.typeYear,jdbcType=DATE},
       sort = #{record.sort,jdbcType=INTEGER},
-      enable_flag = #{record.enableFlag,jdbcType=INTEGER},
-      enable_begin = #{record.enableBegin,jdbcType=TIMESTAMP},
-      enable_end = #{record.enableEnd,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       create_by = #{record.createBy,jdbcType=BIGINT},
-      last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
-      last_update_by = #{record.lastUpdateBy,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=BIGINT},
       comments = #{record.comments,jdbcType=VARCHAR},
       version = #{record.version,jdbcType=INTEGER},
       status = #{record.status,jdbcType=INTEGER}
@@ -816,26 +777,17 @@
       <if test="sort != null">
         sort = #{sort,jdbcType=INTEGER},
       </if>
-      <if test="enableFlag != null">
-        enable_flag = #{enableFlag,jdbcType=INTEGER},
-      </if>
-      <if test="enableBegin != null">
-        enable_begin = #{enableBegin,jdbcType=TIMESTAMP},
-      </if>
-      <if test="enableEnd != null">
-        enable_end = #{enableEnd,jdbcType=TIMESTAMP},
-      </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createBy != null">
         create_by = #{createBy,jdbcType=BIGINT},
       </if>
-      <if test="lastUpdateTime != null">
-        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastUpdateBy != null">
-        last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=BIGINT},
       </if>
       <if test="comments != null">
         comments = #{comments,jdbcType=VARCHAR},
@@ -925,13 +877,10 @@
       type_varchar = #{typeVarchar,jdbcType=VARCHAR},
       type_year = #{typeYear,jdbcType=DATE},
       sort = #{sort,jdbcType=INTEGER},
-      enable_flag = #{enableFlag,jdbcType=INTEGER},
-      enable_begin = #{enableBegin,jdbcType=TIMESTAMP},
-      enable_end = #{enableEnd,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       create_by = #{createBy,jdbcType=BIGINT},
-      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
-      last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
       comments = #{comments,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER},
       status = #{status,jdbcType=INTEGER},
@@ -977,13 +926,10 @@
       type_varchar = #{typeVarchar,jdbcType=VARCHAR},
       type_year = #{typeYear,jdbcType=DATE},
       sort = #{sort,jdbcType=INTEGER},
-      enable_flag = #{enableFlag,jdbcType=INTEGER},
-      enable_begin = #{enableBegin,jdbcType=TIMESTAMP},
-      enable_end = #{enableEnd,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       create_by = #{createBy,jdbcType=BIGINT},
-      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
-      last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
       comments = #{comments,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER},
       status = #{status,jdbcType=INTEGER}
@@ -1106,27 +1052,6 @@
       <if test="columnsMap.typeYear != null">
         type_year,
       </if>
-      <if test="columnsMap.sort != null">
-        sort,
-      </if>
-      <if test="columnsMap.enableFlag != null">
-        enable_flag,
-      </if>
-      <if test="columnsMap.enableBegin != null">
-        enable_begin,
-      </if>
-      <if test="columnsMap.enableEnd != null">
-        enable_end,
-      </if>
-      <if test="columnsMap.createTime != null">
-        create_time,
-      </if>
-      <if test="columnsMap.comments != null">
-        comments,
-      </if>
-      <if test="columnsMap.version != null">
-        version,
-      </if>
     </trim>
     values
     <foreach collection = "record" item = "item" separator = ",">
@@ -1244,27 +1169,6 @@
         </if>
         <if test="columnsMap.typeYear != null">
           #{item.typeYear},
-        </if>
-        <if test="columnsMap.sort != null">
-          #{item.sort},
-        </if>
-        <if test="columnsMap.enableFlag != null">
-          #{item.enableFlag},
-        </if>
-        <if test="columnsMap.enableBegin != null">
-          #{item.enableBegin},
-        </if>
-        <if test="columnsMap.enableEnd != null">
-          #{item.enableEnd},
-        </if>
-        <if test="columnsMap.createTime != null">
-          #{item.createTime},
-        </if>
-        <if test="columnsMap.comments != null">
-          #{item.comments},
-        </if>
-        <if test="columnsMap.version != null">
-          #{item.version},
         </if>
       </trim>
     </foreach>

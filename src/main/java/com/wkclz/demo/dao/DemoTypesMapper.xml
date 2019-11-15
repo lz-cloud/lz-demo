@@ -43,13 +43,6 @@
       type_varbinary,
       type_varchar,
       type_year,
-      sort,
-      enable_flag,
-      enable_begin,
-      enable_end,
-      create_time,
-      comments,
-      version,
       'true' as QUERYID
     FROM
       demo_types
@@ -168,27 +161,6 @@
       </if>
       <if test="typeYear != null">
         AND type_year = #{typeYear}
-      </if>
-      <if test="sort != null">
-        AND sort = #{sort}
-      </if>
-      <if test="enableFlag != null">
-        AND enable_flag = #{enableFlag}
-      </if>
-      <if test="enableBegin != null">
-        AND enable_begin = #{enableBegin}
-      </if>
-      <if test="enableEnd != null">
-        AND enable_end = #{enableEnd}
-      </if>
-      <if test="createTime != null">
-        AND create_time = #{createTime}
-      </if>
-      <if test="comments != null">
-        AND comments = #{comments}
-      </if>
-      <if test="version != null">
-        AND version = #{version}
       </if>
   </select>
 

@@ -25,6 +25,10 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.wkclz.starter</groupId>
+            <artifactId>lz-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
