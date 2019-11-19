@@ -65,7 +65,7 @@ bakfile() {
    echo "$BAK_NUM backup jars will be keep in ./bak"
    while(($FILE_NUM > $BAK_NUM))
    do
-      OLD_FILE=$(cd `dirname $0`;cd ../bak;ls -rt *.tar.gz | head -1)
+      OLD_FILE=$(cd `dirname $0`;cd .bak;ls -rt *.tar.gz | head -1)
       echo "Remove old backup jars:"$APP_HOME'/bak/'$OLD_FILE
       rm -f $APP_HOME'/bak/'$OLD_FILE
       let "FILE_NUM--"
