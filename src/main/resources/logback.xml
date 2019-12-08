@@ -1,51 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <!-- 引入默认的日志配置
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    -->
+    <springProperty scope="context" name="spring.application.name" source="spring.application.name" defaultValue="lz"/>
+    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%X{envType}|${spring.application.name}|%X{originIp}-%X{serverIp}|%X{traceId}|%X{spanId}|%X{tenantId}|%X{userId}|%-4level|%thread|%-36logger{36}|%-3L |%msg%n"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
     <appender name="infoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>./logs/info.log</File>
+        <File>./logs/${spring.application.name}.log</File>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[cms] %d{HH:mm:ss.SSS} [%thread] %-5level %logger[%L] - %msg%n</pattern>
+            <pattern>${pattern}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>./logs/info.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>./logs/${spring.application.name}.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
         </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>1024MB</MaxFileSize>
+        </triggeringPolicy>
     </appender>
-    <appender name="warnFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>./logs/warn.log</File>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>WARN</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[cms] %d{HH:mm:ss.SSS} [%thread] %-5level %logger[%L] - %msg%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>./logs/warn.%d{yyyy-MM-dd}.log</FileNamePattern>
-        </rollingPolicy>
-    </appender>
-    <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>./logs/error.log</File>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[cms] %d{HH:mm:ss.SSS} [%thread] %-5level %logger[%L] - %msg%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>./logs/error.%d{yyyy-MM-dd}.log</FileNamePattern>
-        </rollingPolicy>
-    </appender>
-    <root level="info">
-        <appender-ref ref="infoFile"/>
-        <appender-ref ref="warnFile"/>
-        <appender-ref ref="errorFile"/>
-    </root>
+
+    <springProfile name="dev,sit,uat,prod">
+        <root level="INFO">
+            <appender-ref ref="console"/>
+            <appender-ref ref="infoFile"/>
+        </root>
+    </springProfile>
 </configuration>

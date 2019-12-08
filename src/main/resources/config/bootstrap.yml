@@ -27,5 +27,5 @@ eureka:
 logging:
   file: ./logs/${spring.application.name}.log
   level:
-    org.springframework.web: warn
-    com.wkclz.demo: info
+    root: INFO
+    com.wkclz: INFO
