@@ -68,21 +68,21 @@ public class DemoTypesRest {
      * @apiSuccess {Double} [typeDouble] type_double
      * @apiSuccess {Float} [typeFloat] type_float
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
-     * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
+     * @apiSuccess {Object} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
      * @apiSuccess {String} [typeJson] type_json [MBG不支持JSON]
-     * @apiSuccess {byte[]} [typeLinestring] type_linestring
+     * @apiSuccess {Object} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
      * @apiSuccess {byte[]} [typeMediumblob] type_mediumblob
      * @apiSuccess {Integer} [typeMediumint] type_mediumint
      * @apiSuccess {String} [typeMediumtext] type_mediumtext
-     * @apiSuccess {byte[]} [typeMultilinestring] type_multilinestring
-     * @apiSuccess {byte[]} [typeMultipoint] type_multipoint
-     * @apiSuccess {byte[]} [typeMultipolygon] type_multipolygon
+     * @apiSuccess {Object} [typeMultilinestring] type_multilinestring
+     * @apiSuccess {Object} [typeMultipoint] type_multipoint
+     * @apiSuccess {Object} [typeMultipolygon] type_multipolygon
      * @apiSuccess {BigDecimal} [typeNumeric] type_numeric
-     * @apiSuccess {byte[]} [typePoint] type_point
-     * @apiSuccess {byte[]} [typePolygon] type_polygon
+     * @apiSuccess {Object} [typePoint] type_point
+     * @apiSuccess {Object} [typePolygon] type_polygon
      * @apiSuccess {Double} [typeReal] type_real
      * @apiSuccess {String} [typeText] type_text
      * @apiSuccess {Date} [typeTime] type_time
@@ -93,6 +93,14 @@ public class DemoTypesRest {
      * @apiSuccess {byte[]} [typeVarbinary] type_varbinary
      * @apiSuccess {String} [typeVarchar] type_varchar
      * @apiSuccess {Date} [typeYear] type_year
+     * @apiSuccess {Integer} [sort] 排序
+     * @apiSuccess {Date} [createTime] 创建时间
+     * @apiSuccess {Long} [createBy] 创建人
+     * @apiSuccess {Date} [updateTime] 最后更新时间
+     * @apiSuccess {Long} [updateBy] 最后更新人
+     * @apiSuccess {String} [comments] 备注
+     * @apiSuccess {Integer} [version] 版本号
+     * @apiSuccess {Integer} [status] status
      *
      * @apiSuccessExample {json} 返回样例:
      * {
@@ -138,6 +146,14 @@ public class DemoTypesRest {
      *                 "typeVarbinary": "typeVarbinary",
      *                 "typeVarchar": "typeVarchar",
      *                 "typeYear": "typeYear",
+     *                 "sort": "sort",
+     *                 "createTime": "createTime",
+     *                 "createBy": "createBy",
+     *                 "updateTime": "updateTime",
+     *                 "updateBy": "updateBy",
+     *                 "comments": "comments",
+     *                 "version": "version",
+     *                 "status": "status",
      *             },
      *             ...
      *         ],
@@ -231,21 +247,21 @@ public class DemoTypesRest {
      * @apiSuccess {Double} [typeDouble] type_double
      * @apiSuccess {Float} [typeFloat] type_float
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
-     * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
+     * @apiSuccess {Object} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
      * @apiSuccess {String} [typeJson] type_json [MBG不支持JSON]
-     * @apiSuccess {byte[]} [typeLinestring] type_linestring
+     * @apiSuccess {Object} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
      * @apiSuccess {byte[]} [typeMediumblob] type_mediumblob
      * @apiSuccess {Integer} [typeMediumint] type_mediumint
      * @apiSuccess {String} [typeMediumtext] type_mediumtext
-     * @apiSuccess {byte[]} [typeMultilinestring] type_multilinestring
-     * @apiSuccess {byte[]} [typeMultipoint] type_multipoint
-     * @apiSuccess {byte[]} [typeMultipolygon] type_multipolygon
+     * @apiSuccess {Object} [typeMultilinestring] type_multilinestring
+     * @apiSuccess {Object} [typeMultipoint] type_multipoint
+     * @apiSuccess {Object} [typeMultipolygon] type_multipolygon
      * @apiSuccess {BigDecimal} [typeNumeric] type_numeric
-     * @apiSuccess {byte[]} [typePoint] type_point
-     * @apiSuccess {byte[]} [typePolygon] type_polygon
+     * @apiSuccess {Object} [typePoint] type_point
+     * @apiSuccess {Object} [typePolygon] type_polygon
      * @apiSuccess {Double} [typeReal] type_real
      * @apiSuccess {String} [typeText] type_text
      * @apiSuccess {Date} [typeTime] type_time
@@ -256,6 +272,14 @@ public class DemoTypesRest {
      * @apiSuccess {byte[]} [typeVarbinary] type_varbinary
      * @apiSuccess {String} [typeVarchar] type_varchar
      * @apiSuccess {Date} [typeYear] type_year
+     * @apiSuccess {Integer} [sort] 排序
+     * @apiSuccess {Date} [createTime] 创建时间
+     * @apiSuccess {Long} [createBy] 创建人
+     * @apiSuccess {Date} [updateTime] 最后更新时间
+     * @apiSuccess {Long} [updateBy] 最后更新人
+     * @apiSuccess {String} [comments] 备注
+     * @apiSuccess {Integer} [version] 版本号
+     * @apiSuccess {Integer} [status] status
      *
      * @apiSuccessExample {json} 返回样例:
      * {
@@ -299,6 +323,14 @@ public class DemoTypesRest {
      *          "typeVarbinary": "typeVarbinary",
      *          "typeVarchar": "typeVarchar",
      *          "typeYear": "typeYear",
+     *          "sort": "sort",
+     *          "createTime": "createTime",
+     *          "createBy": "createBy",
+     *          "updateTime": "updateTime",
+     *          "updateBy": "updateBy",
+     *          "comments": "comments",
+     *          "version": "version",
+     *          "status": "status",
      *     }
      * }
      *
@@ -335,21 +367,21 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
-     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
-     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {Object} [typePoint] <code>body</code>type_point
+     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -360,6 +392,14 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeVarbinary] <code>body</code>type_varbinary
      * @apiParam {String} [typeVarchar] <code>body</code>type_varchar
      * @apiParam {Date} [typeYear] <code>body</code>type_year
+     * @apiParam {Integer} [sort] <code>body</code>排序
+     * @apiParam {Date} [createTime] <code>body</code>创建时间
+     * @apiParam {Long} [createBy] <code>body</code>创建人
+     * @apiParam {Date} [updateTime] <code>body</code>最后更新时间
+     * @apiParam {Long} [updateBy] <code>body</code>最后更新人
+     * @apiParam {String} [comments] <code>body</code>备注
+     * @apiParam {Integer} [version] <code>body</code>版本号
+     * @apiParam {Integer} [status] <code>body</code>status
      *
      * @apiParamExample {json} 请求样例:
      * {
@@ -400,6 +440,14 @@ public class DemoTypesRest {
      *      "typeVarbinary": "typeVarbinary",
      *      "typeVarchar": "typeVarchar",
      *      "typeYear": "typeYear",
+     *      "sort": "sort",
+     *      "createTime": "createTime",
+     *      "createBy": "createBy",
+     *      "updateTime": "updateTime",
+     *      "updateBy": "updateBy",
+     *      "comments": "comments",
+     *      "version": "version",
+     *      "status": "status",
      * }
      *
      * @apiSuccessExample {json} 返回样例:
@@ -442,21 +490,21 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
-     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
-     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {Object} [typePoint] <code>body</code>type_point
+     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -467,6 +515,14 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeVarbinary] <code>body</code>type_varbinary
      * @apiParam {String} [typeVarchar] <code>body</code>type_varchar
      * @apiParam {Date} [typeYear] <code>body</code>type_year
+     * @apiParam {Integer} [sort] <code>body</code>排序
+     * @apiParam {Date} [createTime] <code>body</code>创建时间
+     * @apiParam {Long} [createBy] <code>body</code>创建人
+     * @apiParam {Date} [updateTime] <code>body</code>最后更新时间
+     * @apiParam {Long} [updateBy] <code>body</code>最后更新人
+     * @apiParam {String} [comments] <code>body</code>备注
+     * @apiParam {Integer} [version] <code>body</code>版本号
+     * @apiParam {Integer} [status] <code>body</code>status
      *
      * @apiParamExample {json} 请求样例:
      * {
@@ -508,6 +564,14 @@ public class DemoTypesRest {
      *      "typeVarbinary": "typeVarbinary",
      *      "typeVarchar": "typeVarchar",
      *      "typeYear": "typeYear",
+     *      "sort": "sort",
+     *      "createTime": "createTime",
+     *      "createBy": "createBy",
+     *      "updateTime": "updateTime",
+     *      "updateBy": "updateBy",
+     *      "comments": "comments",
+     *      "version": "version",
+     *      "status": "status",
      * }
      *
      * @apiSuccessExample {json} 返回样例:
@@ -555,21 +619,21 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
-     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
-     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {Object} [typePoint] <code>body</code>type_point
+     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -580,6 +644,14 @@ public class DemoTypesRest {
      * @apiParam {byte[]} [typeVarbinary] <code>body</code>type_varbinary
      * @apiParam {String} [typeVarchar] <code>body</code>type_varchar
      * @apiParam {Date} [typeYear] <code>body</code>type_year
+     * @apiParam {Integer} [sort] <code>body</code>排序
+     * @apiParam {Date} [createTime] <code>body</code>创建时间
+     * @apiParam {Long} [createBy] <code>body</code>创建人
+     * @apiParam {Date} [updateTime] <code>body</code>最后更新时间
+     * @apiParam {Long} [updateBy] <code>body</code>最后更新人
+     * @apiParam {String} [comments] <code>body</code>备注
+     * @apiParam {Integer} [version] <code>body</code>版本号
+     * @apiParam {Integer} [status] <code>body</code>status
      *
      * @apiParamExample {json} 请求样例:
      * {
@@ -621,6 +693,14 @@ public class DemoTypesRest {
      *      "typeVarbinary": "typeVarbinary",
      *      "typeVarchar": "typeVarchar",
      *      "typeYear": "typeYear",
+     *      "sort": "sort",
+     *      "createTime": "createTime",
+     *      "createBy": "createBy",
+     *      "updateTime": "updateTime",
+     *      "updateBy": "updateBy",
+     *      "comments": "comments",
+     *      "version": "version",
+     *      "status": "status",
      * }
      *
      * @apiSuccessExample {json} 返回样例:

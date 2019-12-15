@@ -87,7 +87,7 @@ public class DemoTypes extends BaseModel {
     /**
      * type_geometrycollection
      */
-    private byte[] typeGeometrycollection;
+    private Object typeGeometrycollection;
 
     /**
      * type_integer
@@ -102,7 +102,7 @@ public class DemoTypes extends BaseModel {
     /**
      * type_linestring
      */
-    private byte[] typeLinestring;
+    private Object typeLinestring;
 
     /**
      * type_longblob
@@ -132,17 +132,17 @@ public class DemoTypes extends BaseModel {
     /**
      * type_multilinestring
      */
-    private byte[] typeMultilinestring;
+    private Object typeMultilinestring;
 
     /**
      * type_multipoint
      */
-    private byte[] typeMultipoint;
+    private Object typeMultipoint;
 
     /**
      * type_multipolygon
      */
-    private byte[] typeMultipolygon;
+    private Object typeMultipolygon;
 
     /**
      * type_numeric
@@ -152,12 +152,12 @@ public class DemoTypes extends BaseModel {
     /**
      * type_point
      */
-    private byte[] typePoint;
+    private Object typePoint;
 
     /**
      * type_polygon
      */
-    private byte[] typePolygon;
+    private Object typePolygon;
 
     /**
      * type_real
@@ -251,6 +251,14 @@ public class DemoTypes extends BaseModel {
         target.setTypeVarbinary(source.getTypeVarbinary());
         target.setTypeVarchar(source.getTypeVarchar());
         target.setTypeYear(source.getTypeYear());
+        target.setSort(source.getSort());
+        target.setCreateTime(source.getCreateTime());
+        target.setCreateBy(source.getCreateBy());
+        target.setUpdateTime(source.getUpdateTime());
+        target.setUpdateBy(source.getUpdateBy());
+        target.setComments(source.getComments());
+        target.setVersion(source.getVersion());
+        target.setStatus(source.getStatus());
         return target;
     }
 
@@ -295,6 +303,14 @@ public class DemoTypes extends BaseModel {
         if (source.getTypeVarbinary() != null){ target.setTypeVarbinary(source.getTypeVarbinary()); }
         if (source.getTypeVarchar() != null){ target.setTypeVarchar(source.getTypeVarchar()); }
         if (source.getTypeYear() != null){ target.setTypeYear(source.getTypeYear()); }
+        if (source.getSort() != null){ target.setSort(source.getSort()); }
+        if (source.getCreateTime() != null){ target.setCreateTime(source.getCreateTime()); }
+        if (source.getCreateBy() != null){ target.setCreateBy(source.getCreateBy()); }
+        if (source.getUpdateTime() != null){ target.setUpdateTime(source.getUpdateTime()); }
+        if (source.getUpdateBy() != null){ target.setUpdateBy(source.getUpdateBy()); }
+        if (source.getComments() != null){ target.setComments(source.getComments()); }
+        if (source.getVersion() != null){ target.setVersion(source.getVersion()); }
+        if (source.getStatus() != null){ target.setStatus(source.getStatus()); }
         return target;
     }
 
@@ -339,6 +355,14 @@ public class DemoTypes extends BaseModel {
         if (model.getTypeTinytext()!=null){ criteria.andTypeTinytextEqualTo(model.getTypeTinytext()); }
         if (model.getTypeVarchar()!=null){ criteria.andTypeVarcharEqualTo(model.getTypeVarchar()); }
         if (model.getTypeYear()!=null){ criteria.andTypeYearEqualTo(model.getTypeYear()); }
+        if (model.getSort()!=null){ criteria.andSortEqualTo(model.getSort()); }
+        if (model.getCreateTime()!=null){ criteria.andCreateTimeEqualTo(model.getCreateTime()); }
+        if (model.getCreateBy()!=null){ criteria.andCreateByEqualTo(model.getCreateBy()); }
+        if (model.getUpdateTime()!=null){ criteria.andUpdateTimeEqualTo(model.getUpdateTime()); }
+        if (model.getUpdateBy()!=null){ criteria.andUpdateByEqualTo(model.getUpdateBy()); }
+        if (model.getComments()!=null){ criteria.andCommentsEqualTo(model.getComments()); }
+        if (model.getVersion()!=null){ criteria.andVersionEqualTo(model.getVersion()); }
+        if (model.getStatus()!=null){ criteria.andStatusEqualTo(model.getStatus()); }
 
         // BASE
         if (model.getTimeFrom() != null ) { criteria.andCreateTimeGreaterThanOrEqualTo(model.getTimeFrom()); }

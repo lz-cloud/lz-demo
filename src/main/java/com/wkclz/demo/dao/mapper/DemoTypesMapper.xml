@@ -1052,6 +1052,30 @@
       <if test="columnsMap.typeYear != null">
         type_year,
       </if>
+      <if test="columnsMap.sort != null">
+        sort,
+      </if>
+      <if test="columnsMap.createTime != null">
+        create_time,
+      </if>
+      <if test="columnsMap.createBy != null">
+        create_by,
+      </if>
+      <if test="columnsMap.updateTime != null">
+        update_time,
+      </if>
+      <if test="columnsMap.updateBy != null">
+        update_by,
+      </if>
+      <if test="columnsMap.comments != null">
+        comments,
+      </if>
+      <if test="columnsMap.version != null">
+        version,
+      </if>
+      <if test="columnsMap.status != null">
+        status,
+      </if>
     </trim>
     values
     <foreach collection = "record" item = "item" separator = ",">
@@ -1169,6 +1193,30 @@
         </if>
         <if test="columnsMap.typeYear != null">
           #{item.typeYear},
+        </if>
+        <if test="columnsMap.sort != null">
+          #{item.sort},
+        </if>
+        <if test="columnsMap.createTime != null">
+          #{item.createTime},
+        </if>
+        <if test="columnsMap.createBy != null">
+          #{item.createBy},
+        </if>
+        <if test="columnsMap.updateTime != null">
+          #{item.updateTime},
+        </if>
+        <if test="columnsMap.updateBy != null">
+          #{item.updateBy},
+        </if>
+        <if test="columnsMap.comments != null">
+          #{item.comments},
+        </if>
+        <if test="columnsMap.version != null">
+          #{item.version},
+        </if>
+        <if test="columnsMap.status != null">
+          #{item.status},
         </if>
       </trim>
     </foreach>
