@@ -1,13 +1,12 @@
 package com.wkclz.demo.pojo.entity;
 
 import com.wkclz.core.base.BaseModel;
-import com.wkclz.core.util.StringUtil;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Description: Create by Shrimp Generator
@@ -16,13 +15,9 @@ import java.util.List;
  */
 
 @Data
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 public class DemoTypes extends BaseModel {
-
-    /**
-     * ID
-     */
-    private Long id;
 
     /**
      * type_int
@@ -312,66 +307,6 @@ public class DemoTypes extends BaseModel {
         if (source.getVersion() != null){ target.setVersion(source.getVersion()); }
         if (source.getStatus() != null){ target.setStatus(source.getStatus()); }
         return target;
-    }
-
-    public static DemoTypesExample createDelExample(List<Long> ids){
-        DemoTypesExample example = new DemoTypesExample();
-        DemoTypesExample.Criteria criteria = example.createCriteria();
-        criteria.andIdIn(ids);
-        return example;
-    }
-
-    public static DemoTypesExample createExample(DemoTypes model){
-
-        DemoTypesExample example = new DemoTypesExample();
-        DemoTypesExample.Criteria criteria = example.createCriteria();
-
-        // base
-        criteria.andStatusEqualTo(1);
-
-        if (model==null){ model = new DemoTypes(); }
-
-        // id 和 ids 取交集
-        if (model.getIds()!=null && model.getIds().size()>0){ criteria.andIdIn(model.getIds()); }
-
-        //criterias
-        if (model.getId()!=null){ criteria.andIdEqualTo(model.getId()); }
-        if (model.getTypeInt()!=null){ criteria.andTypeIntEqualTo(model.getTypeInt()); }
-        if (model.getTypeBigint()!=null){ criteria.andTypeBigintEqualTo(model.getTypeBigint()); }
-        if (model.getTypeBit()!=null){ criteria.andTypeBitEqualTo(model.getTypeBit()); }
-        if (model.getTypeChar()!=null){ criteria.andTypeCharEqualTo(model.getTypeChar()); }
-        if (model.getTypeDate()!=null){ criteria.andTypeDateEqualTo(model.getTypeDate()); }
-        if (model.getTypeDatetime()!=null){ criteria.andTypeDatetimeEqualTo(model.getTypeDatetime()); }
-        if (model.getTypeDecimal()!=null){ criteria.andTypeDecimalEqualTo(model.getTypeDecimal()); }
-        if (model.getTypeDouble()!=null){ criteria.andTypeDoubleEqualTo(model.getTypeDouble()); }
-        if (model.getTypeFloat()!=null){ criteria.andTypeFloatEqualTo(model.getTypeFloat()); }
-        if (model.getTypeInteger()!=null){ criteria.andTypeIntegerEqualTo(model.getTypeInteger()); }
-        if (model.getTypeMediumint()!=null){ criteria.andTypeMediumintEqualTo(model.getTypeMediumint()); }
-        if (model.getTypeNumeric()!=null){ criteria.andTypeNumericEqualTo(model.getTypeNumeric()); }
-        if (model.getTypeReal()!=null){ criteria.andTypeRealEqualTo(model.getTypeReal()); }
-        if (model.getTypeTime()!=null){ criteria.andTypeTimeEqualTo(model.getTypeTime()); }
-        if (model.getTypeTimestamp()!=null){ criteria.andTypeTimestampEqualTo(model.getTypeTimestamp()); }
-        if (model.getTypeTinyint()!=null){ criteria.andTypeTinyintEqualTo(model.getTypeTinyint()); }
-        if (model.getTypeTinytext()!=null){ criteria.andTypeTinytextEqualTo(model.getTypeTinytext()); }
-        if (model.getTypeVarchar()!=null){ criteria.andTypeVarcharEqualTo(model.getTypeVarchar()); }
-        if (model.getTypeYear()!=null){ criteria.andTypeYearEqualTo(model.getTypeYear()); }
-        if (model.getSort()!=null){ criteria.andSortEqualTo(model.getSort()); }
-        if (model.getCreateTime()!=null){ criteria.andCreateTimeEqualTo(model.getCreateTime()); }
-        if (model.getCreateBy()!=null){ criteria.andCreateByEqualTo(model.getCreateBy()); }
-        if (model.getUpdateTime()!=null){ criteria.andUpdateTimeEqualTo(model.getUpdateTime()); }
-        if (model.getUpdateBy()!=null){ criteria.andUpdateByEqualTo(model.getUpdateBy()); }
-        if (model.getComments()!=null){ criteria.andCommentsEqualTo(model.getComments()); }
-        if (model.getVersion()!=null){ criteria.andVersionEqualTo(model.getVersion()); }
-        if (model.getStatus()!=null){ criteria.andStatusEqualTo(model.getStatus()); }
-
-        // BASE
-        if (model.getTimeFrom() != null ) { criteria.andCreateTimeGreaterThanOrEqualTo(model.getTimeFrom()); }
-        if (model.getTimeTo() != null ) { criteria.andCreateTimeLessThanOrEqualTo(model.getTimeTo()); }
-        example.setOrderByClause(DEFAULE_ORDER_BY);
-        if (model.getOrderBy()!=null) {
-            example.setOrderByClause(StringUtil.camelToUnderline(model.getOrderBy()));
-        }
-        return example;
     }
 
 }

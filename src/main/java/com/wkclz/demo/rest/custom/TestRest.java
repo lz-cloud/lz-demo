@@ -1,23 +1,38 @@
 package com.wkclz.demo.rest.custom;
 
-import com.wkclz.sdk.domain.pay.PayOrder;
-import com.wkclz.sdk.service.PayService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.wkclz.core.base.BaseModel;
+import com.wkclz.core.base.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class TestRest {
 
-    @Autowired
-    private PayService payService;
+    private static final Logger logger = LoggerFactory.getLogger(TestRest.class);
 
-    @GetMapping("/test")
-    public void test(HttpServletRequest req, HttpServletResponse rep){
-        PayOrder payOrder = new PayOrder();
-        payService.payOrderNew(rep, payOrder);
+    @PostMapping("/test")
+    public Result test(@RequestBody BaseModel model, String xx){
+        logger.info("info {}", model);
+        return Result.data(xx);
+    }
+
+
+    @GetMapping("/test/delay")
+    public Result testDelay(Integer delay){
+        if (delay == null){
+            delay = 3000;
+        }
+
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return Result.data(delay);
     }
 }

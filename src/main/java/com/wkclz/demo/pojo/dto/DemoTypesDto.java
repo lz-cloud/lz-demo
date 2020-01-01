@@ -3,6 +3,7 @@ package com.wkclz.demo.pojo.dto;
 import com.wkclz.demo.pojo.entity.DemoTypes;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * Description: Create by Shrimp Generator
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 
 @Data
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 public class DemoTypesDto extends DemoTypes {
 

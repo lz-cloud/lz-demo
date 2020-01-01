@@ -5,7 +5,7 @@ import com.wkclz.core.base.PageData;
 import com.wkclz.core.base.Result;
 import com.wkclz.core.helper.BaseHelper;
 import com.wkclz.demo.pojo.entity.DemoTypes;
-import com.wkclz.demo.repo.DemoTypesRepo;
+import com.wkclz.demo.service.core.DemoTypesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class DemoTypesRest {
 
     @Autowired
-    private DemoTypesRepo demoTypesRepo;
+    private DemoTypesService demoTypesService;
 
     /**
      * @api {get} /demo/types/page 1、demo-全类型-获取分页
@@ -168,7 +168,7 @@ public class DemoTypesRest {
     @GetMapping("/demo/types/page")
     public Result demoTypesPage(DemoTypes model){
         Result result = new Result();
-        PageData<DemoTypes> demoTypess = demoTypesRepo.page(model);
+        PageData<DemoTypes> demoTypess = demoTypesService.page(model);
         return result.setData(demoTypess);
     }
 
@@ -218,7 +218,7 @@ public class DemoTypesRest {
     public Result demoTypesCount(DemoTypes model){
         Result result = new Result();
         BaseModel baseModel = new BaseModel();
-        baseModel.setCount(demoTypesRepo.count(model));
+        baseModel.setCount(demoTypesService.count(model));
         return result.setData(baseModel);
     }
 
@@ -341,7 +341,7 @@ public class DemoTypesRest {
         if (model.getId()==null){
             return result.setError("id can not be null");
         }
-        model = demoTypesRepo.get(model.getId());
+        model = demoTypesService.get(model.getId());
         if (model == null){
             return result.setError("id is error");
         }
@@ -465,7 +465,7 @@ public class DemoTypesRest {
         // 按需添加限制条件
 
         model.setId(null);
-        Long id = demoTypesRepo.insert(model);
+        Long id = demoTypesService.insert(model);
         model.setId(id);
         return result.setData(model);
     }
@@ -589,13 +589,13 @@ public class DemoTypesRest {
         if (model.getId() == null){
             return result.setError("id can not be null");
         }
-        DemoTypes target = demoTypesRepo.get(model.getId());
+        DemoTypes target = demoTypesService.get(model.getId());
         if (target == null){
             return result.setError("id is error, data is not exist");
         }
         DemoTypes.copyIfNotNull(model, target);
 
-        demoTypesRepo.update(target);
+        demoTypesService.updateAll(target);
         return result.setData(model);
     }
 
@@ -718,15 +718,15 @@ public class DemoTypesRest {
         // 条件判断
 
         if (model.getId() == null){
-            Long id = demoTypesRepo.insert(model);
+            Long id = demoTypesService.insert(model);
             model.setId(id);
         } else {
-            DemoTypes data = demoTypesRepo.get(model.getId());
+            DemoTypes data = demoTypesService.get(model.getId());
             if (data == null){
                 return result.setError("id错误，数据不存在");
             }
             DemoTypes.copyIfNotNull(model, data);
-            demoTypesRepo.update(data);
+            demoTypesService.updateAll(data);
         }
         return result.setData(model);
 
@@ -762,7 +762,7 @@ public class DemoTypesRest {
         if (result.getError()!=null){
             return result;
         }
-        Integer rt = demoTypesRepo.del(model.getIds());
+        Long rt = demoTypesService.delete(model.getIds());
         return result.setData(rt);
     }
 
