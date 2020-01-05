@@ -34,80 +34,152 @@
     status
   </sql>
 
-  <!-- blobColumns 字段集(包含BLOB) -->
-  <sql id="blobColumns">
-    type_binary, 
-    type_blob, 
-    type_geometry, 
-    type_geometrycollection, 
-    type_json, 
-    type_linestring, 
-    type_longblob, 
-    type_longtext, 
-    type_mediumblob, 
-    type_mediumtext, 
-    type_multilinestring, 
-    type_multipoint, 
-    type_multipolygon, 
-    type_point, 
-    type_polygon, 
-    type_text, 
-    type_tinyblob, 
-    type_varbinary
+  <!-- selectiveColumns -->
+  <sql id="selectiveColumns">
+    <trim suffixOverrides=",">
+	  <if test="id != null">
+        id,
+	  </if>
+	  <if test="typeInt != null">
+        type_int,
+	  </if>
+	  <if test="typeBigint != null">
+        type_bigint,
+	  </if>
+	  <if test="typeBinary != null">
+        type_binary,
+	  </if>
+	  <if test="typeBit != null">
+        type_bit,
+	  </if>
+	  <if test="typeBlob != null">
+        type_blob,
+	  </if>
+	  <if test="typeChar != null">
+        type_char,
+	  </if>
+	  <if test="typeDate != null">
+        type_date,
+	  </if>
+	  <if test="typeDatetime != null">
+        type_datetime,
+	  </if>
+	  <if test="typeDecimal != null">
+        type_decimal,
+	  </if>
+	  <if test="typeDouble != null">
+        type_double,
+	  </if>
+	  <if test="typeFloat != null">
+        type_float,
+	  </if>
+	  <if test="typeGeometry != null">
+        type_geometry,
+	  </if>
+	  <if test="typeGeometrycollection != null">
+        type_geometrycollection,
+	  </if>
+	  <if test="typeInteger != null">
+        type_integer,
+	  </if>
+	  <if test="typeJson != null">
+        type_json,
+	  </if>
+	  <if test="typeLinestring != null">
+        type_linestring,
+	  </if>
+	  <if test="typeLongblob != null">
+        type_longblob,
+	  </if>
+	  <if test="typeLongtext != null">
+        type_longtext,
+	  </if>
+	  <if test="typeMediumblob != null">
+        type_mediumblob,
+	  </if>
+	  <if test="typeMediumint != null">
+        type_mediumint,
+	  </if>
+	  <if test="typeMediumtext != null">
+        type_mediumtext,
+	  </if>
+	  <if test="typeMultilinestring != null">
+        type_multilinestring,
+	  </if>
+	  <if test="typeMultipoint != null">
+        type_multipoint,
+	  </if>
+	  <if test="typeMultipolygon != null">
+        type_multipolygon,
+	  </if>
+	  <if test="typeNumeric != null">
+        type_numeric,
+	  </if>
+	  <if test="typePoint != null">
+        type_point,
+	  </if>
+	  <if test="typePolygon != null">
+        type_polygon,
+	  </if>
+	  <if test="typeReal != null">
+        type_real,
+	  </if>
+	  <if test="typeText != null">
+        type_text,
+	  </if>
+	  <if test="typeTime != null">
+        type_time,
+	  </if>
+	  <if test="typeTimestamp != null">
+        type_timestamp,
+	  </if>
+	  <if test="typeTinyblob != null">
+        type_tinyblob,
+	  </if>
+	  <if test="typeTinyint != null">
+        type_tinyint,
+	  </if>
+	  <if test="typeTinytext != null">
+        type_tinytext,
+	  </if>
+	  <if test="typeVarbinary != null">
+        type_varbinary,
+	  </if>
+	  <if test="typeVarchar != null">
+        type_varchar,
+	  </if>
+	  <if test="typeYear != null">
+        type_year,
+	  </if>
+	  <if test="sort != null">
+        sort,
+	  </if>
+	  <if test="createTime != null">
+        create_time,
+	  </if>
+	  <if test="createBy != null">
+        create_by,
+	  </if>
+	  <if test="updateTime != null">
+        update_time,
+	  </if>
+	  <if test="updateBy != null">
+        update_by,
+	  </if>
+	  <if test="comments != null">
+        comments,
+	  </if>
+	  <if test="version != null">
+        version,
+	  </if>
+	  <if test="status != null">
+        status,
+	  </if>
+	</trim>
   </sql>
-  
-  <!-- updateAllSet 全量更新 set -->
-  <sql id="updateAllSet">
-      id = #{id},
-      type_int = #{typeInt},
-      type_bigint = #{typeBigint},
-      type_binary = #{typeBinary},
-      type_bit = #{typeBit},
-      type_blob = #{typeBlob},
-      type_char = #{typeChar},
-      type_date = #{typeDate},
-      type_datetime = #{typeDatetime},
-      type_decimal = #{typeDecimal},
-      type_double = #{typeDouble},
-      type_float = #{typeFloat},
-      type_geometry = #{typeGeometry},
-      type_geometrycollection = #{typeGeometrycollection},
-      type_integer = #{typeInteger},
-      type_json = #{typeJson},
-      type_linestring = #{typeLinestring},
-      type_longblob = #{typeLongblob},
-      type_longtext = #{typeLongtext},
-      type_mediumblob = #{typeMediumblob},
-      type_mediumint = #{typeMediumint},
-      type_mediumtext = #{typeMediumtext},
-      type_multilinestring = #{typeMultilinestring},
-      type_multipoint = #{typeMultipoint},
-      type_multipolygon = #{typeMultipolygon},
-      type_numeric = #{typeNumeric},
-      type_point = #{typePoint},
-      type_polygon = #{typePolygon},
-      type_real = #{typeReal},
-      type_text = #{typeText},
-      type_time = #{typeTime},
-      type_timestamp = #{typeTimestamp},
-      type_tinyblob = #{typeTinyblob},
-      type_tinyint = #{typeTinyint},
-      type_tinytext = #{typeTinytext},
-      type_varbinary = #{typeVarbinary},
-      type_varchar = #{typeVarchar},
-      type_year = #{typeYear},
-      sort = #{sort},
-      create_time = #{createTime},
-      create_by = #{createBy},
-      update_time = #{updateTime},
-      update_by = #{updateBy},
-      comments = #{comments},
-      version = #{version},
-      status = #{status}
-  </sql>
-  
-  <!-- updateSelectiveSet 选择性更新 set -->
-  <sql id="updateSelectiveSet">
+
+  <!-- selectiveSets -->
+  <sql id="selectiveSets">
     <trim suffixOverrides=",">
 	  <if test="id != null">
         id = #{id},
@@ -250,103 +322,344 @@
 	</trim>
   </sql>
 
+   <!-- selectiveValues -->
+  <sql id="selectiveValues">
+    <trim suffixOverrides=",">
+	  <if test="id != null">
+        #{id},
+	  </if>
+	  <if test="typeInt != null">
+        #{typeInt},
+	  </if>
+	  <if test="typeBigint != null">
+        #{typeBigint},
+	  </if>
+	  <if test="typeBinary != null">
+        #{typeBinary},
+	  </if>
+	  <if test="typeBit != null">
+        #{typeBit},
+	  </if>
+	  <if test="typeBlob != null">
+        #{typeBlob},
+	  </if>
+	  <if test="typeChar != null">
+        #{typeChar},
+	  </if>
+	  <if test="typeDate != null">
+        #{typeDate},
+	  </if>
+	  <if test="typeDatetime != null">
+        #{typeDatetime},
+	  </if>
+	  <if test="typeDecimal != null">
+        #{typeDecimal},
+	  </if>
+	  <if test="typeDouble != null">
+        #{typeDouble},
+	  </if>
+	  <if test="typeFloat != null">
+        #{typeFloat},
+	  </if>
+	  <if test="typeGeometry != null">
+        #{typeGeometry},
+	  </if>
+	  <if test="typeGeometrycollection != null">
+        #{typeGeometrycollection},
+	  </if>
+	  <if test="typeInteger != null">
+        #{typeInteger},
+	  </if>
+	  <if test="typeJson != null">
+        #{typeJson},
+	  </if>
+	  <if test="typeLinestring != null">
+        #{typeLinestring},
+	  </if>
+	  <if test="typeLongblob != null">
+        #{typeLongblob},
+	  </if>
+	  <if test="typeLongtext != null">
+        #{typeLongtext},
+	  </if>
+	  <if test="typeMediumblob != null">
+        #{typeMediumblob},
+	  </if>
+	  <if test="typeMediumint != null">
+        #{typeMediumint},
+	  </if>
+	  <if test="typeMediumtext != null">
+        #{typeMediumtext},
+	  </if>
+	  <if test="typeMultilinestring != null">
+        #{typeMultilinestring},
+	  </if>
+	  <if test="typeMultipoint != null">
+        #{typeMultipoint},
+	  </if>
+	  <if test="typeMultipolygon != null">
+        #{typeMultipolygon},
+	  </if>
+	  <if test="typeNumeric != null">
+        #{typeNumeric},
+	  </if>
+	  <if test="typePoint != null">
+        #{typePoint},
+	  </if>
+	  <if test="typePolygon != null">
+        #{typePolygon},
+	  </if>
+	  <if test="typeReal != null">
+        #{typeReal},
+	  </if>
+	  <if test="typeText != null">
+        #{typeText},
+	  </if>
+	  <if test="typeTime != null">
+        #{typeTime},
+	  </if>
+	  <if test="typeTimestamp != null">
+        #{typeTimestamp},
+	  </if>
+	  <if test="typeTinyblob != null">
+        #{typeTinyblob},
+	  </if>
+	  <if test="typeTinyint != null">
+        #{typeTinyint},
+	  </if>
+	  <if test="typeTinytext != null">
+        #{typeTinytext},
+	  </if>
+	  <if test="typeVarbinary != null">
+        #{typeVarbinary},
+	  </if>
+	  <if test="typeVarchar != null">
+        #{typeVarchar},
+	  </if>
+	  <if test="typeYear != null">
+        #{typeYear},
+	  </if>
+	  <if test="sort != null">
+        #{sort},
+	  </if>
+	  <if test="createTime != null">
+        #{createTime},
+	  </if>
+	  <if test="createBy != null">
+        #{createBy},
+	  </if>
+	  <if test="updateTime != null">
+        #{updateTime},
+	  </if>
+	  <if test="updateBy != null">
+        #{updateBy},
+	  </if>
+	  <if test="comments != null">
+        #{comments},
+	  </if>
+	  <if test="version != null">
+        #{version},
+	  </if>
+	  <if test="status != null">
+        #{status},
+	  </if>
+	</trim>
+  </sql>
+
+  <!-- allColumns -->
+  <sql id="allColumns">
+    id,
+    type_int,
+    type_bigint,
+    type_binary,
+    type_bit,
+    type_blob,
+    type_char,
+    type_date,
+    type_datetime,
+    type_decimal,
+    type_double,
+    type_float,
+    type_geometry,
+    type_geometrycollection,
+    type_integer,
+    type_json,
+    type_linestring,
+    type_longblob,
+    type_longtext,
+    type_mediumblob,
+    type_mediumint,
+    type_mediumtext,
+    type_multilinestring,
+    type_multipoint,
+    type_multipolygon,
+    type_numeric,
+    type_point,
+    type_polygon,
+    type_real,
+    type_text,
+    type_time,
+    type_timestamp,
+    type_tinyblob,
+    type_tinyint,
+    type_tinytext,
+    type_varbinary,
+    type_varchar,
+    type_year,
+    sort,
+    create_time,
+    create_by,
+    update_time,
+    update_by,
+    comments,
+    version,
+    status
+  </sql>
+
+  <!-- allSets -->
+  <sql id="allSets">
+    id = #{id},
+    type_int = #{typeInt},
+    type_bigint = #{typeBigint},
+    type_binary = #{typeBinary},
+    type_bit = #{typeBit},
+    type_blob = #{typeBlob},
+    type_char = #{typeChar},
+    type_date = #{typeDate},
+    type_datetime = #{typeDatetime},
+    type_decimal = #{typeDecimal},
+    type_double = #{typeDouble},
+    type_float = #{typeFloat},
+    type_geometry = #{typeGeometry},
+    type_geometrycollection = #{typeGeometrycollection},
+    type_integer = #{typeInteger},
+    type_json = #{typeJson},
+    type_linestring = #{typeLinestring},
+    type_longblob = #{typeLongblob},
+    type_longtext = #{typeLongtext},
+    type_mediumblob = #{typeMediumblob},
+    type_mediumint = #{typeMediumint},
+    type_mediumtext = #{typeMediumtext},
+    type_multilinestring = #{typeMultilinestring},
+    type_multipoint = #{typeMultipoint},
+    type_multipolygon = #{typeMultipolygon},
+    type_numeric = #{typeNumeric},
+    type_point = #{typePoint},
+    type_polygon = #{typePolygon},
+    type_real = #{typeReal},
+    type_text = #{typeText},
+    type_time = #{typeTime},
+    type_timestamp = #{typeTimestamp},
+    type_tinyblob = #{typeTinyblob},
+    type_tinyint = #{typeTinyint},
+    type_tinytext = #{typeTinytext},
+    type_varbinary = #{typeVarbinary},
+    type_varchar = #{typeVarchar},
+    type_year = #{typeYear},
+    sort = #{sort},
+    create_time = #{createTime},
+    create_by = #{createBy},
+    update_time = #{updateTime},
+    update_by = #{updateBy},
+    comments = #{comments},
+    version = #{version},
+    status = #{status}
+  </sql>
+
   <!-- where 条件集 -->
   <sql id="where">
-      WHERE
-        status = 1
-        <if test="ids != null and ids.size > 0">
-          AND id IN ( <foreach collection="ids" item="item" separator=","> #{item} </foreach> )
-        </if>
-        <if test="timeFrom != null">
-          AND create_time &gt;= #{timeFrom}
-        </if>
-        <if test="timeTo != null">
-          AND create_time &lt;= #{timeTo}
-        </if>
-        <if test="id != null">
-          AND id = #{id}
-        </if>
-        <if test="typeInt != null">
-          AND type_int = #{typeInt}
-        </if>
-        <if test="typeBigint != null">
-          AND type_bigint = #{typeBigint}
-        </if>
-        <if test="typeBit != null">
-          AND type_bit = #{typeBit}
-        </if>
-        <if test="typeChar != null">
-          AND type_char = #{typeChar}
-        </if>
-        <if test="typeDate != null">
-          AND type_date = #{typeDate}
-        </if>
-        <if test="typeDatetime != null">
-          AND type_datetime = #{typeDatetime}
-        </if>
-        <if test="typeDecimal != null">
-          AND type_decimal = #{typeDecimal}
-        </if>
-        <if test="typeDouble != null">
-          AND type_double = #{typeDouble}
-        </if>
-        <if test="typeFloat != null">
-          AND type_float = #{typeFloat}
-        </if>
-        <if test="typeInteger != null">
-          AND type_integer = #{typeInteger}
-        </if>
-        <if test="typeMediumint != null">
-          AND type_mediumint = #{typeMediumint}
-        </if>
-        <if test="typeNumeric != null">
-          AND type_numeric = #{typeNumeric}
-        </if>
-        <if test="typeReal != null">
-          AND type_real = #{typeReal}
-        </if>
-        <if test="typeTime != null">
-          AND type_time = #{typeTime}
-        </if>
-        <if test="typeTimestamp != null">
-          AND type_timestamp = #{typeTimestamp}
-        </if>
-        <if test="typeTinyint != null">
-          AND type_tinyint = #{typeTinyint}
-        </if>
-        <if test="typeTinytext != null">
-          AND type_tinytext = #{typeTinytext}
-        </if>
-        <if test="typeVarchar != null">
-          AND type_varchar = #{typeVarchar}
-        </if>
-        <if test="typeYear != null">
-          AND type_year = #{typeYear}
-        </if>
-        <if test="sort != null">
-          AND sort = #{sort}
-        </if>
-        <if test="createTime != null">
-          AND create_time = #{createTime}
-        </if>
-        <if test="createBy != null">
-          AND create_by = #{createBy}
-        </if>
-        <if test="updateTime != null">
-          AND update_time = #{updateTime}
-        </if>
-        <if test="updateBy != null">
-          AND update_by = #{updateBy}
-        </if>
-        <if test="comments != null">
-          AND comments = #{comments}
-        </if>
-        <if test="version != null">
-          AND version = #{version}
-        </if>
-        <if test="status != null">
-          AND status = #{status}
-        </if>
+    WHERE
+      status = 1
+      <if test="ids != null and ids.size > 0">
+        AND id IN ( <foreach collection="ids" item="item" separator=","> #{item} </foreach> )
+      </if>
+      <if test="timeFrom != null">
+        AND create_time &gt;= #{timeFrom}
+      </if>
+      <if test="timeTo != null">
+        AND create_time &lt;= #{timeTo}
+      </if>
+      <if test="id != null">
+        AND id = #{id}
+      </if>
+      <if test="typeInt != null">
+        AND type_int = #{typeInt}
+      </if>
+      <if test="typeBigint != null">
+        AND type_bigint = #{typeBigint}
+      </if>
+      <if test="typeBit != null">
+        AND type_bit = #{typeBit}
+      </if>
+      <if test="typeChar != null">
+        AND type_char = #{typeChar}
+      </if>
+      <if test="typeDate != null">
+        AND type_date = #{typeDate}
+      </if>
+      <if test="typeDatetime != null">
+        AND type_datetime = #{typeDatetime}
+      </if>
+      <if test="typeDecimal != null">
+        AND type_decimal = #{typeDecimal}
+      </if>
+      <if test="typeDouble != null">
+        AND type_double = #{typeDouble}
+      </if>
+      <if test="typeFloat != null">
+        AND type_float = #{typeFloat}
+      </if>
+      <if test="typeInteger != null">
+        AND type_integer = #{typeInteger}
+      </if>
+      <if test="typeMediumint != null">
+        AND type_mediumint = #{typeMediumint}
+      </if>
+      <if test="typeNumeric != null">
+        AND type_numeric = #{typeNumeric}
+      </if>
+      <if test="typeReal != null">
+        AND type_real = #{typeReal}
+      </if>
+      <if test="typeTime != null">
+        AND type_time = #{typeTime}
+      </if>
+      <if test="typeTimestamp != null">
+        AND type_timestamp = #{typeTimestamp}
+      </if>
+      <if test="typeTinyint != null">
+        AND type_tinyint = #{typeTinyint}
+      </if>
+      <if test="typeTinytext != null">
+        AND type_tinytext = #{typeTinytext}
+      </if>
+      <if test="typeVarchar != null">
+        AND type_varchar = #{typeVarchar}
+      </if>
+      <if test="typeYear != null">
+        AND type_year = #{typeYear}
+      </if>
+      <if test="sort != null">
+        AND sort = #{sort}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createBy != null">
+        AND create_by = #{createBy}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateBy != null">
+        AND update_by = #{updateBy}
+      </if>
+      <if test="comments != null">
+        AND comments = #{comments}
+      </if>
+      <if test="version != null">
+        AND version = #{version}
+      </if>
   </sql>
 
   <!-- count 统计 -->
@@ -361,9 +674,7 @@
   <!-- getById 主键查询 -->
   <select id="getById" parameterType="java.lang.Long" resultType="com.wkclz.demo.pojo.entity.DemoTypes">
     SELECT
-      <include refid="baseColumns"/>
-      ,
-      <include refid="blobColumns"/>
+      <include refid="allColumns"/>
     FROM
       demo_types
     WHERE
@@ -374,9 +685,7 @@
   <!-- getByModel 模型查询，要求唯一 -->
   <select id="getByModel" parameterType="com.wkclz.demo.pojo.entity.DemoTypes" resultType="com.wkclz.demo.pojo.entity.DemoTypes">
     SELECT
-      <include refid="baseColumns"/>
-      ,
-      <include refid="blobColumns"/>
+      <include refid="allColumns"/>
     FROM
       demo_types
     <include refid="where"/>
@@ -391,307 +700,296 @@
       demo_types
     <include refid="where"/>
 	<if test="orderBy != null">
-	ORDER BY
-      ${orderBy}
+	  ORDER BY
+        ${orderBy}
 	</if>
-	<if test="pageSize != null">
-	LIMIT
-	  ((#{pageNo} -1) * #{pageSize}), #{pageSize}
+	<if test="pageNo != null and pageSize != null">
+	  LIMIT
+	    ((#{pageNo} -1) * #{pageSize}), #{pageSize}
 	</if>
   </select>
 
   <!-- insert (选择性)插入 -->
   <insert id="insert" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+     </selectKey>
     INSERT INTO demo_types (
-	  <trim suffixOverrides=",">
-	    <if test="id != null">
-          id,
-	    </if>
-	    <if test="typeInt != null">
-          type_int,
-	    </if>
-	    <if test="typeBigint != null">
-          type_bigint,
-	    </if>
-	    <if test="typeBinary != null">
-          type_binary,
-	    </if>
-	    <if test="typeBit != null">
-          type_bit,
-	    </if>
-	    <if test="typeBlob != null">
-          type_blob,
-	    </if>
-	    <if test="typeChar != null">
-          type_char,
-	    </if>
-	    <if test="typeDate != null">
-          type_date,
-	    </if>
-	    <if test="typeDatetime != null">
-          type_datetime,
-	    </if>
-	    <if test="typeDecimal != null">
-          type_decimal,
-	    </if>
-	    <if test="typeDouble != null">
-          type_double,
-	    </if>
-	    <if test="typeFloat != null">
-          type_float,
-	    </if>
-	    <if test="typeGeometry != null">
-          type_geometry,
-	    </if>
-	    <if test="typeGeometrycollection != null">
-          type_geometrycollection,
-	    </if>
-	    <if test="typeInteger != null">
-          type_integer,
-	    </if>
-	    <if test="typeJson != null">
-          type_json,
-	    </if>
-	    <if test="typeLinestring != null">
-          type_linestring,
-	    </if>
-	    <if test="typeLongblob != null">
-          type_longblob,
-	    </if>
-	    <if test="typeLongtext != null">
-          type_longtext,
-	    </if>
-	    <if test="typeMediumblob != null">
-          type_mediumblob,
-	    </if>
-	    <if test="typeMediumint != null">
-          type_mediumint,
-	    </if>
-	    <if test="typeMediumtext != null">
-          type_mediumtext,
-	    </if>
-	    <if test="typeMultilinestring != null">
-          type_multilinestring,
-	    </if>
-	    <if test="typeMultipoint != null">
-          type_multipoint,
-	    </if>
-	    <if test="typeMultipolygon != null">
-          type_multipolygon,
-	    </if>
-	    <if test="typeNumeric != null">
-          type_numeric,
-	    </if>
-	    <if test="typePoint != null">
-          type_point,
-	    </if>
-	    <if test="typePolygon != null">
-          type_polygon,
-	    </if>
-	    <if test="typeReal != null">
-          type_real,
-	    </if>
-	    <if test="typeText != null">
-          type_text,
-	    </if>
-	    <if test="typeTime != null">
-          type_time,
-	    </if>
-	    <if test="typeTimestamp != null">
-          type_timestamp,
-	    </if>
-	    <if test="typeTinyblob != null">
-          type_tinyblob,
-	    </if>
-	    <if test="typeTinyint != null">
-          type_tinyint,
-	    </if>
-	    <if test="typeTinytext != null">
-          type_tinytext,
-	    </if>
-	    <if test="typeVarbinary != null">
-          type_varbinary,
-	    </if>
-	    <if test="typeVarchar != null">
-          type_varchar,
-	    </if>
-	    <if test="typeYear != null">
-          type_year,
-	    </if>
-	    <if test="sort != null">
-          sort,
-	    </if>
-	    <if test="createTime != null">
-          create_time,
-	    </if>
-	    <if test="createBy != null">
-          create_by,
-	    </if>
-	    <if test="updateTime != null">
-          update_time,
-	    </if>
-	    <if test="updateBy != null">
-          update_by,
-	    </if>
-	    <if test="comments != null">
-          comments,
-	    </if>
-	    <if test="version != null">
-          version,
-	    </if>
-	    <if test="status != null">
-          status,
-	    </if>
-	  </trim>
+      <include refid="selectiveColumns"/>
 	) VALUES (
-	   <trim suffixOverrides=",">
-	     <if test="id != null">
-           #{id},
-	     </if>
-	     <if test="typeInt != null">
-           #{typeInt},
-	     </if>
-	     <if test="typeBigint != null">
-           #{typeBigint},
-	     </if>
-	     <if test="typeBinary != null">
-           #{typeBinary},
-	     </if>
-	     <if test="typeBit != null">
-           #{typeBit},
-	     </if>
-	     <if test="typeBlob != null">
-           #{typeBlob},
-	     </if>
-	     <if test="typeChar != null">
-           #{typeChar},
-	     </if>
-	     <if test="typeDate != null">
-           #{typeDate},
-	     </if>
-	     <if test="typeDatetime != null">
-           #{typeDatetime},
-	     </if>
-	     <if test="typeDecimal != null">
-           #{typeDecimal},
-	     </if>
-	     <if test="typeDouble != null">
-           #{typeDouble},
-	     </if>
-	     <if test="typeFloat != null">
-           #{typeFloat},
-	     </if>
-	     <if test="typeGeometry != null">
-           #{typeGeometry},
-	     </if>
-	     <if test="typeGeometrycollection != null">
-           #{typeGeometrycollection},
-	     </if>
-	     <if test="typeInteger != null">
-           #{typeInteger},
-	     </if>
-	     <if test="typeJson != null">
-           #{typeJson},
-	     </if>
-	     <if test="typeLinestring != null">
-           #{typeLinestring},
-	     </if>
-	     <if test="typeLongblob != null">
-           #{typeLongblob},
-	     </if>
-	     <if test="typeLongtext != null">
-           #{typeLongtext},
-	     </if>
-	     <if test="typeMediumblob != null">
-           #{typeMediumblob},
-	     </if>
-	     <if test="typeMediumint != null">
-           #{typeMediumint},
-	     </if>
-	     <if test="typeMediumtext != null">
-           #{typeMediumtext},
-	     </if>
-	     <if test="typeMultilinestring != null">
-           #{typeMultilinestring},
-	     </if>
-	     <if test="typeMultipoint != null">
-           #{typeMultipoint},
-	     </if>
-	     <if test="typeMultipolygon != null">
-           #{typeMultipolygon},
-	     </if>
-	     <if test="typeNumeric != null">
-           #{typeNumeric},
-	     </if>
-	     <if test="typePoint != null">
-           #{typePoint},
-	     </if>
-	     <if test="typePolygon != null">
-           #{typePolygon},
-	     </if>
-	     <if test="typeReal != null">
-           #{typeReal},
-	     </if>
-	     <if test="typeText != null">
-           #{typeText},
-	     </if>
-	     <if test="typeTime != null">
-           #{typeTime},
-	     </if>
-	     <if test="typeTimestamp != null">
-           #{typeTimestamp},
-	     </if>
-	     <if test="typeTinyblob != null">
-           #{typeTinyblob},
-	     </if>
-	     <if test="typeTinyint != null">
-           #{typeTinyint},
-	     </if>
-	     <if test="typeTinytext != null">
-           #{typeTinytext},
-	     </if>
-	     <if test="typeVarbinary != null">
-           #{typeVarbinary},
-	     </if>
-	     <if test="typeVarchar != null">
-           #{typeVarchar},
-	     </if>
-	     <if test="typeYear != null">
-           #{typeYear},
-	     </if>
-	     <if test="sort != null">
-           #{sort},
-	     </if>
-	     <if test="createTime != null">
-           #{createTime},
-	     </if>
-	     <if test="createBy != null">
-           #{createBy},
-	     </if>
-	     <if test="updateTime != null">
-           #{updateTime},
-	     </if>
-	     <if test="updateBy != null">
-           #{updateBy},
-	     </if>
-	     <if test="comments != null">
-           #{comments},
-	     </if>
-	     <if test="version != null">
-           #{version},
-	     </if>
-	     <if test="status != null">
-           #{status},
-	     </if>
-	  </trim>
+      <include refid="selectiveValues"/>
 	)
   </insert>
   
-  <!-- insertBatch (选择性)批量插入 -->
-    
+  <!-- insertBatch 全量批量插入 -->
+  <insert id="insertBatch" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
+    INSERT INTO demo_types (
+      <include refid="allColumns"/>
+    ) VALUES
+      <foreach collection="list" item="item" open="(" close=")" separator=",">
+        <include refid="allSets"/>
+      </foreach>
+  </insert>
+
   <!-- updateAll 更新(带乐观锁) -->
+  <update id="updateAll" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
+    UPDATE
+      demo_types
+    SET
+      <include refid="allSets"/>
+    <include refid="where"/>
+  </update>
+
   <!-- updateSelective 选择性更新(带乐观锁) -->
-  <!-- updateBatch 批量更新(不带乐观锁) -->
+  <update id="updateSelective" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
+    UPDATE
+      demo_types
+    SET
+      <include refid="selectiveSets"/>
+    <include refid="where"/>
+  </update>
+
+  <!-- updateBatch 批量更新(不带乐观锁)[暂不提供实现] -->
+  <update id="updateBatch" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
+    UPDATE demo_types
+    SET
+      version = version + 1,
+      <trim suffixOverrides=",">
+        id = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.id}
+          </foreach>
+          END,
+        type_int = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeInt}
+          </foreach>
+          END,
+        type_bigint = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeBigint}
+          </foreach>
+          END,
+        type_binary = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeBinary}
+          </foreach>
+          END,
+        type_bit = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeBit}
+          </foreach>
+          END,
+        type_blob = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeBlob}
+          </foreach>
+          END,
+        type_char = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeChar}
+          </foreach>
+          END,
+        type_date = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeDate}
+          </foreach>
+          END,
+        type_datetime = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeDatetime}
+          </foreach>
+          END,
+        type_decimal = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeDecimal}
+          </foreach>
+          END,
+        type_double = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeDouble}
+          </foreach>
+          END,
+        type_float = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeFloat}
+          </foreach>
+          END,
+        type_geometry = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeGeometry}
+          </foreach>
+          END,
+        type_geometrycollection = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeGeometrycollection}
+          </foreach>
+          END,
+        type_integer = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeInteger}
+          </foreach>
+          END,
+        type_json = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeJson}
+          </foreach>
+          END,
+        type_linestring = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeLinestring}
+          </foreach>
+          END,
+        type_longblob = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeLongblob}
+          </foreach>
+          END,
+        type_longtext = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeLongtext}
+          </foreach>
+          END,
+        type_mediumblob = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeMediumblob}
+          </foreach>
+          END,
+        type_mediumint = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeMediumint}
+          </foreach>
+          END,
+        type_mediumtext = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeMediumtext}
+          </foreach>
+          END,
+        type_multilinestring = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeMultilinestring}
+          </foreach>
+          END,
+        type_multipoint = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeMultipoint}
+          </foreach>
+          END,
+        type_multipolygon = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeMultipolygon}
+          </foreach>
+          END,
+        type_numeric = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeNumeric}
+          </foreach>
+          END,
+        type_point = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typePoint}
+          </foreach>
+          END,
+        type_polygon = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typePolygon}
+          </foreach>
+          END,
+        type_real = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeReal}
+          </foreach>
+          END,
+        type_text = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeText}
+          </foreach>
+          END,
+        type_time = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeTime}
+          </foreach>
+          END,
+        type_timestamp = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeTimestamp}
+          </foreach>
+          END,
+        type_tinyblob = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeTinyblob}
+          </foreach>
+          END,
+        type_tinyint = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeTinyint}
+          </foreach>
+          END,
+        type_tinytext = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeTinytext}
+          </foreach>
+          END,
+        type_varbinary = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeVarbinary}
+          </foreach>
+          END,
+        type_varchar = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeVarchar}
+          </foreach>
+          END,
+        type_year = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.typeYear}
+          </foreach>
+          END,
+        sort = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.sort}
+          </foreach>
+          END,
+        create_time = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.createTime}
+          </foreach>
+          END,
+        create_by = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.createBy}
+          </foreach>
+          END,
+        update_time = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.updateTime}
+          </foreach>
+          END,
+        update_by = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.updateBy}
+          </foreach>
+          END,
+        comments = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.comments}
+          </foreach>
+          END,
+        version = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.version}
+          </foreach>
+          END,
+        status = CASE id
+          <foreach collection="list" item="item">
+            WHEN #{item.id} THEN #{item.status}
+          </foreach>
+          END,
+      </trim>
+    WHERE
+      status = 1
+      AND id IN ( <foreach collection="list" item="item" separator=",">#{item.id}</foreach> )
+  </update>
 
   <!-- delete (逻辑)删除 -->
   <update id="delete" parameterType="java.lang.Long">
@@ -699,7 +997,9 @@
     SET
       status = 0,
       version = version + 1
-    <include refid="where"/> 
+    WHERE
+      status = 1
+      AND id = #{id}
   </update>
 
   <!-- deleteBatch 批量(逻辑)删除 -->
