@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 /**
- * Description: Create by Shrimp Generator
- * @author: wangkaicun @ current time
- * @table: demo_types (demo-全类型)
+ * Description: Create by lz-gen
+ * @author: wangkaicun
+ * @table: demo_types (demo-全类型) 示例rest 接口，代码重新生成会覆盖
  */
 // @RestController
 public class DemoTypesRest {
@@ -31,7 +30,6 @@ public class DemoTypesRest {
      * @apiVersion 0.0.1
      * @apiDescription demo-全类型-获取分页
      *
-     * @apiParam {Long} [id] <code>param</code>ID
      * @apiParam {Integer} [typeInt] <code>param</code>type_int
      * @apiParam {Long} [typeBigint] <code>param</code>type_bigint
      * @apiParam {Boolean} [typeBit] <code>param</code>type_bit
@@ -68,21 +66,21 @@ public class DemoTypesRest {
      * @apiSuccess {Double} [typeDouble] type_double
      * @apiSuccess {Float} [typeFloat] type_float
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
-     * @apiSuccess {Object} [typeGeometrycollection] type_geometrycollection
+     * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
      * @apiSuccess {String} [typeJson] type_json [MBG不支持JSON]
-     * @apiSuccess {Object} [typeLinestring] type_linestring
+     * @apiSuccess {byte[]} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
      * @apiSuccess {byte[]} [typeMediumblob] type_mediumblob
      * @apiSuccess {Integer} [typeMediumint] type_mediumint
      * @apiSuccess {String} [typeMediumtext] type_mediumtext
-     * @apiSuccess {Object} [typeMultilinestring] type_multilinestring
-     * @apiSuccess {Object} [typeMultipoint] type_multipoint
-     * @apiSuccess {Object} [typeMultipolygon] type_multipolygon
+     * @apiSuccess {byte[]} [typeMultilinestring] type_multilinestring
+     * @apiSuccess {byte[]} [typeMultipoint] type_multipoint
+     * @apiSuccess {byte[]} [typeMultipolygon] type_multipolygon
      * @apiSuccess {BigDecimal} [typeNumeric] type_numeric
-     * @apiSuccess {Object} [typePoint] type_point
-     * @apiSuccess {Object} [typePolygon] type_polygon
+     * @apiSuccess {byte[]} [typePoint] type_point
+     * @apiSuccess {byte[]} [typePolygon] type_polygon
      * @apiSuccess {Double} [typeReal] type_real
      * @apiSuccess {String} [typeText] type_text
      * @apiSuccess {Date} [typeTime] type_time
@@ -167,9 +165,8 @@ public class DemoTypesRest {
      */
     @GetMapping("/demo/types/page")
     public Result demoTypesPage(DemoTypes model){
-        Result result = new Result();
         PageData<DemoTypes> demoTypess = demoTypesService.page(model);
-        return result.setData(demoTypess);
+        return Result.data(demoTypess);
     }
 
     /**
@@ -179,7 +176,6 @@ public class DemoTypesRest {
      * @apiVersion 0.0.1
      * @apiDescription demo-全类型-获取数量
      *
-     * @apiParam {Long} [id] <code>param</code>ID
      * @apiParam {Integer} [typeInt] <code>param</code>type_int
      * @apiParam {Long} [typeBigint] <code>param</code>type_bigint
      * @apiParam {Boolean} [typeBit] <code>param</code>type_bit
@@ -216,10 +212,9 @@ public class DemoTypesRest {
      */
     @GetMapping("/demo/types/count")
     public Result demoTypesCount(DemoTypes model){
-        Result result = new Result();
         BaseModel baseModel = new BaseModel();
         baseModel.setCount(demoTypesService.count(model));
-        return result.setData(baseModel);
+        return Result.data(baseModel);
     }
 
     /**
@@ -247,21 +242,21 @@ public class DemoTypesRest {
      * @apiSuccess {Double} [typeDouble] type_double
      * @apiSuccess {Float} [typeFloat] type_float
      * @apiSuccess {byte[]} [typeGeometry] type_geometry
-     * @apiSuccess {Object} [typeGeometrycollection] type_geometrycollection
+     * @apiSuccess {byte[]} [typeGeometrycollection] type_geometrycollection
      * @apiSuccess {Integer} [typeInteger] type_integer
      * @apiSuccess {String} [typeJson] type_json [MBG不支持JSON]
-     * @apiSuccess {Object} [typeLinestring] type_linestring
+     * @apiSuccess {byte[]} [typeLinestring] type_linestring
      * @apiSuccess {byte[]} [typeLongblob] type_longblob
      * @apiSuccess {String} [typeLongtext] type_longtext
      * @apiSuccess {byte[]} [typeMediumblob] type_mediumblob
      * @apiSuccess {Integer} [typeMediumint] type_mediumint
      * @apiSuccess {String} [typeMediumtext] type_mediumtext
-     * @apiSuccess {Object} [typeMultilinestring] type_multilinestring
-     * @apiSuccess {Object} [typeMultipoint] type_multipoint
-     * @apiSuccess {Object} [typeMultipolygon] type_multipolygon
+     * @apiSuccess {byte[]} [typeMultilinestring] type_multilinestring
+     * @apiSuccess {byte[]} [typeMultipoint] type_multipoint
+     * @apiSuccess {byte[]} [typeMultipolygon] type_multipolygon
      * @apiSuccess {BigDecimal} [typeNumeric] type_numeric
-     * @apiSuccess {Object} [typePoint] type_point
-     * @apiSuccess {Object} [typePolygon] type_polygon
+     * @apiSuccess {byte[]} [typePoint] type_point
+     * @apiSuccess {byte[]} [typePolygon] type_polygon
      * @apiSuccess {Double} [typeReal] type_real
      * @apiSuccess {String} [typeText] type_text
      * @apiSuccess {Date} [typeTime] type_time
@@ -336,16 +331,15 @@ public class DemoTypesRest {
      *
      */
     @GetMapping("/demo/types/detail")
-    public Result demoTypesDetail(DemoTypes model){
-        Result result = new Result();
+    public Result demoTypesDetail(DemoTypes model){;
         if (model.getId()==null){
-            return result.setError("id can not be null");
+            return Result.error("id can not be null");
         }
         model = demoTypesService.get(model.getId());
         if (model == null){
-            return result.setError("id is error");
+            return Result.error("id is error");
         }
-        return result.setData(model);
+        return Result.data(model);
     }
 
     /**
@@ -367,21 +361,21 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
-     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>body</code>type_point
-     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
+     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -460,14 +454,11 @@ public class DemoTypesRest {
     @PostMapping("/demo/types/new")
     @Transactional(rollbackFor = Exception.class)
     public Result demoTypesNew(@RequestBody DemoTypes model){
-        Result result = new Result();
-
         // 按需添加限制条件
-
         model.setId(null);
         Long id = demoTypesService.insert(model);
         model.setId(id);
-        return result.setData(model);
+        return Result.data(model);
     }
 
     /**
@@ -490,21 +481,21 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
-     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>body</code>type_point
-     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
+     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -584,19 +575,18 @@ public class DemoTypesRest {
     @PostMapping("/demo/types/update")
     @Transactional(rollbackFor = Exception.class)
     public Result demoTypesUpdate(@RequestBody DemoTypes model){
-        Result result = new Result();
 
         if (model.getId() == null){
-            return result.setError("id can not be null");
+            return Result.error("id can not be null");
         }
         DemoTypes target = demoTypesService.get(model.getId());
         if (target == null){
-            return result.setError("id is error, data is not exist");
+            return Result.error("id is error, data is not exist");
         }
         DemoTypes.copyIfNotNull(model, target);
 
         demoTypesService.updateAll(target);
-        return result.setData(model);
+        return Result.data(model);
     }
 
     /**
@@ -619,21 +609,21 @@ public class DemoTypesRest {
      * @apiParam {Double} [typeDouble] <code>body</code>type_double
      * @apiParam {Float} [typeFloat] <code>body</code>type_float
      * @apiParam {byte[]} [typeGeometry] <code>body</code>type_geometry
-     * @apiParam {Object} [typeGeometrycollection] <code>body</code>type_geometrycollection
+     * @apiParam {byte[]} [typeGeometrycollection] <code>body</code>type_geometrycollection
      * @apiParam {Integer} [typeInteger] <code>body</code>type_integer
      * @apiParam {String} [typeJson] <code>body</code>type_json [MBG不支持JSON]
-     * @apiParam {Object} [typeLinestring] <code>body</code>type_linestring
+     * @apiParam {byte[]} [typeLinestring] <code>body</code>type_linestring
      * @apiParam {byte[]} [typeLongblob] <code>body</code>type_longblob
      * @apiParam {String} [typeLongtext] <code>body</code>type_longtext
      * @apiParam {byte[]} [typeMediumblob] <code>body</code>type_mediumblob
      * @apiParam {Integer} [typeMediumint] <code>body</code>type_mediumint
      * @apiParam {String} [typeMediumtext] <code>body</code>type_mediumtext
-     * @apiParam {Object} [typeMultilinestring] <code>body</code>type_multilinestring
-     * @apiParam {Object} [typeMultipoint] <code>body</code>type_multipoint
-     * @apiParam {Object} [typeMultipolygon] <code>body</code>type_multipolygon
+     * @apiParam {byte[]} [typeMultilinestring] <code>body</code>type_multilinestring
+     * @apiParam {byte[]} [typeMultipoint] <code>body</code>type_multipoint
+     * @apiParam {byte[]} [typeMultipolygon] <code>body</code>type_multipolygon
      * @apiParam {BigDecimal} [typeNumeric] <code>body</code>type_numeric
-     * @apiParam {Object} [typePoint] <code>body</code>type_point
-     * @apiParam {Object} [typePolygon] <code>body</code>type_polygon
+     * @apiParam {byte[]} [typePoint] <code>body</code>type_point
+     * @apiParam {byte[]} [typePolygon] <code>body</code>type_polygon
      * @apiParam {Double} [typeReal] <code>body</code>type_real
      * @apiParam {String} [typeText] <code>body</code>type_text
      * @apiParam {Date} [typeTime] <code>body</code>type_time
@@ -713,22 +703,19 @@ public class DemoTypesRest {
     @PostMapping("/demo/types/save")
     @Transactional(rollbackFor = Exception.class)
     public Result demoTypesSave(@RequestBody DemoTypes model){
-        Result result = new Result();
-
         // 条件判断
-
         if (model.getId() == null){
             Long id = demoTypesService.insert(model);
             model.setId(id);
         } else {
             DemoTypes data = demoTypesService.get(model.getId());
             if (data == null){
-                return result.setError("id错误，数据不存在");
+                return Result.error("id错误，数据不存在");
             }
             DemoTypes.copyIfNotNull(model, data);
             demoTypesService.updateAll(data);
         }
-        return result.setData(model);
+        return Result.data(model);
 
     }
 
@@ -762,8 +749,9 @@ public class DemoTypesRest {
         if (result.getError()!=null){
             return result;
         }
-        Long rt = demoTypesService.delete(model.getIds());
-        return result.setData(rt);
+        Integer rt = demoTypesService.delete(model.getIds());
+        return Result.data(rt);
     }
 
 }
+

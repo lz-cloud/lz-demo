@@ -2,12 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wkclz.demo.dao.DemoTypesMapper">
 
-  <!-- // 示例查询 -->
+  <!-- // 示例查询, 可删除 -->
   <select id="example" resultType="java.lang.Integer">
-    select
+    SELECT
       1 count
     FROM
-      dual
+      DUAL
   </select>
-
+  
 </mapper>
+

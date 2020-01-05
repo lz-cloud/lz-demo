@@ -3,19 +3,17 @@ package com.wkclz.demo.pojo.entity;
 import com.wkclz.core.base.BaseModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * Description: Create by Shrimp Generator
- * @author: wangkaicun @ current time
- * @table: demo_types (demo-全类型)
+ * Description: Create by lz-gen
+ * @author: wangkaicun
+ * @table: demo_types (demo-全类型) 重新生成代码会覆盖
  */
 
 @Data
-@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 public class DemoTypes extends BaseModel {
 
@@ -82,7 +80,7 @@ public class DemoTypes extends BaseModel {
     /**
      * type_geometrycollection
      */
-    private Object typeGeometrycollection;
+    private byte[] typeGeometrycollection;
 
     /**
      * type_integer
@@ -97,7 +95,7 @@ public class DemoTypes extends BaseModel {
     /**
      * type_linestring
      */
-    private Object typeLinestring;
+    private byte[] typeLinestring;
 
     /**
      * type_longblob
@@ -127,17 +125,17 @@ public class DemoTypes extends BaseModel {
     /**
      * type_multilinestring
      */
-    private Object typeMultilinestring;
+    private byte[] typeMultilinestring;
 
     /**
      * type_multipoint
      */
-    private Object typeMultipoint;
+    private byte[] typeMultipoint;
 
     /**
      * type_multipolygon
      */
-    private Object typeMultipolygon;
+    private byte[] typeMultipolygon;
 
     /**
      * type_numeric
@@ -147,12 +145,12 @@ public class DemoTypes extends BaseModel {
     /**
      * type_point
      */
-    private Object typePoint;
+    private byte[] typePoint;
 
     /**
      * type_polygon
      */
-    private Object typePolygon;
+    private byte[] typePolygon;
 
     /**
      * type_real
@@ -310,3 +308,4 @@ public class DemoTypes extends BaseModel {
     }
 
 }
+
