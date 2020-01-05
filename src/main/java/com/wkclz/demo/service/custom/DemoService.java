@@ -1,8 +1,5 @@
 package com.wkclz.demo.service.custom;
 
-import com.wkclz.core.base.BaseService;
-import com.wkclz.demo.dao.DemoTypesMapper;
-import com.wkclz.demo.pojo.entity.DemoTypes;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +8,7 @@ import org.springframework.stereotype.Service;
  */
  
 @Service
-public class DemoTypesService {
+public class DemoService {
 
 }
 
