@@ -16,7 +16,7 @@ public class ApisRest {
     public String downLoadApis(HttpServletResponse rep){
 
         String lineSeparator = System.getProperty("line.separator");
-        List<String> apis = ControllerUtil.getApis("com.wkclz.demo.controller.custom", Routes.class,"/demo");
+        List<String> apis = ControllerUtil.getApis("com.wkclz.demo.rest.custom", Routes.class,"/demo");
 
         StringBuilder sb = new StringBuilder();
         sb.append("import request from './request'");

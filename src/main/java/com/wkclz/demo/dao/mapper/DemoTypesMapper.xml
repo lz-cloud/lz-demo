@@ -314,7 +314,7 @@
         comments = #{comments},
 	  </if>
 	  <if test="version != null">
-        version = #{version},
+        version = version +1,
 	  </if>
 	  <if test="status != null">
         status = #{status},
@@ -562,7 +562,7 @@
     update_time = #{updateTime},
     update_by = #{updateBy},
     comments = #{comments},
-    version = #{version},
+    version = version +1,
     status = #{status}
   </sql>
 
@@ -737,7 +737,9 @@
       demo_types
     SET
       <include refid="allSets"/>
-    <include refid="where"/>
+    WHERE
+      id = #{id}
+      AND version = #{version}
   </update>
 
   <!-- updateSelective 选择性更新(带乐观锁) -->
@@ -746,7 +748,9 @@
       demo_types
     SET
       <include refid="selectiveSets"/>
-    <include refid="where"/>
+    WHERE
+      id = #{id}
+      AND version = #{version}
   </update>
 
   <!-- updateBatch 批量更新(不带乐观锁)[暂不提供实现] -->
