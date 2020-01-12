@@ -1025,22 +1025,24 @@
   </update>
 
   <!-- delete (逻辑)删除 -->
-  <update id="delete" parameterType="java.lang.Long">
+  <update id="delete" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">>
     UPDATE demo_types
     SET
       status = 0,
-      version = version + 1
+      version = version + 1,
+      update_by = #{updateBy}
     WHERE
       status = 1
       AND id = #{id}
   </update>
 
   <!-- deleteBatch 批量(逻辑)删除 -->
-  <update id="deleteBatch" parameterType="java.util.List">
+  <update id="deleteBatch" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">>
     UPDATE demo_types
     SET
       status = 0,
-      version = version + 1
+      version = version + 1,
+      update_by = #{updateBy}
     WHERE
       status = 1
       AND id IN ( <foreach collection="ids" item="item" separator=","> #{item} </foreach> )
