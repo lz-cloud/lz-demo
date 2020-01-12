@@ -4,34 +4,36 @@
 
   <!-- baseColumns 字段集 -->
   <sql id="baseColumns">
-    id,
-    type_int,
-    type_bigint,
-    type_bit,
-    type_char,
-    type_date,
-    type_datetime,
-    type_decimal,
-    type_double,
-    type_float,
-    type_integer,
-    type_mediumint,
-    type_numeric,
-    type_real,
-    type_time,
-    type_timestamp,
-    type_tinyint,
-    type_tinytext,
-    type_varchar,
-    type_year,
-    sort,
-    create_time,
-    create_by,
-    update_time,
-    update_by,
-    comments,
-    version,
-    status
+    <trim suffixOverrides=",">
+      id,
+      type_int,
+      type_bigint,
+      type_bit,
+      type_char,
+      type_date,
+      type_datetime,
+      type_decimal,
+      type_double,
+      type_float,
+      type_integer,
+      type_mediumint,
+      type_numeric,
+      type_real,
+      type_time,
+      type_timestamp,
+      type_tinyint,
+      type_tinytext,
+      type_varchar,
+      type_year,
+      sort,
+      create_time,
+      create_by,
+      update_time,
+      update_by,
+      comments,
+      version,
+      status,
+    </trim>
   </sql>
 
   <!-- selectiveColumns -->
@@ -468,102 +470,105 @@
 
   <!-- allColumns -->
   <sql id="allColumns">
-    id,
-    type_int,
-    type_bigint,
-    type_binary,
-    type_bit,
-    type_blob,
-    type_char,
-    type_date,
-    type_datetime,
-    type_decimal,
-    type_double,
-    type_float,
-    type_geometry,
-    type_geometrycollection,
-    type_integer,
-    type_json,
-    type_linestring,
-    type_longblob,
-    type_longtext,
-    type_mediumblob,
-    type_mediumint,
-    type_mediumtext,
-    type_multilinestring,
-    type_multipoint,
-    type_multipolygon,
-    type_numeric,
-    type_point,
-    type_polygon,
-    type_real,
-    type_text,
-    type_time,
-    type_timestamp,
-    type_tinyblob,
-    type_tinyint,
-    type_tinytext,
-    type_varbinary,
-    type_varchar,
-    type_year,
-    sort,
-    create_time,
-    create_by,
-    update_time,
-    update_by,
-    comments,
-    version,
-    status
+    <trim suffixOverrides=",">
+      id,
+      type_int,
+      type_bigint,
+      type_binary,
+      type_bit,
+      type_blob,
+      type_char,
+      type_date,
+      type_datetime,
+      type_decimal,
+      type_double,
+      type_float,
+      type_geometry,
+      type_geometrycollection,
+      type_integer,
+      type_json,
+      type_linestring,
+      type_longblob,
+      type_longtext,
+      type_mediumblob,
+      type_mediumint,
+      type_mediumtext,
+      type_multilinestring,
+      type_multipoint,
+      type_multipolygon,
+      type_numeric,
+      type_point,
+      type_polygon,
+      type_real,
+      type_text,
+      type_time,
+      type_timestamp,
+      type_tinyblob,
+      type_tinyint,
+      type_tinytext,
+      type_varbinary,
+      type_varchar,
+      type_year,
+      sort,
+      create_time,
+      create_by,
+      update_time,
+      update_by,
+      comments,
+      version,
+      status,
+    </trim>
   </sql>
 
-  <!-- allSets -->
+  <!-- allSets 不带 create_time, update_time, (version独立处理), status -->
   <sql id="allSets">
-    id = #{id},
-    type_int = #{typeInt},
-    type_bigint = #{typeBigint},
-    type_binary = #{typeBinary},
-    type_bit = #{typeBit},
-    type_blob = #{typeBlob},
-    type_char = #{typeChar},
-    type_date = #{typeDate},
-    type_datetime = #{typeDatetime},
-    type_decimal = #{typeDecimal},
-    type_double = #{typeDouble},
-    type_float = #{typeFloat},
-    type_geometry = #{typeGeometry},
-    type_geometrycollection = #{typeGeometrycollection},
-    type_integer = #{typeInteger},
-    type_json = #{typeJson},
-    type_linestring = #{typeLinestring},
-    type_longblob = #{typeLongblob},
-    type_longtext = #{typeLongtext},
-    type_mediumblob = #{typeMediumblob},
-    type_mediumint = #{typeMediumint},
-    type_mediumtext = #{typeMediumtext},
-    type_multilinestring = #{typeMultilinestring},
-    type_multipoint = #{typeMultipoint},
-    type_multipolygon = #{typeMultipolygon},
-    type_numeric = #{typeNumeric},
-    type_point = #{typePoint},
-    type_polygon = #{typePolygon},
-    type_real = #{typeReal},
-    type_text = #{typeText},
-    type_time = #{typeTime},
-    type_timestamp = #{typeTimestamp},
-    type_tinyblob = #{typeTinyblob},
-    type_tinyint = #{typeTinyint},
-    type_tinytext = #{typeTinytext},
-    type_varbinary = #{typeVarbinary},
-    type_varchar = #{typeVarchar},
-    type_year = #{typeYear},
-    sort = #{sort},
-    create_time = #{createTime},
-    create_by = #{createBy},
-    update_time = #{updateTime},
-    update_by = #{updateBy},
-    comments = #{comments},
-    version = version +1,
-    status = #{status}
+    <trim suffixOverrides=",">
+      id = #{id},
+      type_int = #{typeInt},
+      type_bigint = #{typeBigint},
+      type_binary = #{typeBinary},
+      type_bit = #{typeBit},
+      type_blob = #{typeBlob},
+      type_char = #{typeChar},
+      type_date = #{typeDate},
+      type_datetime = #{typeDatetime},
+      type_decimal = #{typeDecimal},
+      type_double = #{typeDouble},
+      type_float = #{typeFloat},
+      type_geometry = #{typeGeometry},
+      type_geometrycollection = #{typeGeometrycollection},
+      type_integer = #{typeInteger},
+      type_json = #{typeJson},
+      type_linestring = #{typeLinestring},
+      type_longblob = #{typeLongblob},
+      type_longtext = #{typeLongtext},
+      type_mediumblob = #{typeMediumblob},
+      type_mediumint = #{typeMediumint},
+      type_mediumtext = #{typeMediumtext},
+      type_multilinestring = #{typeMultilinestring},
+      type_multipoint = #{typeMultipoint},
+      type_multipolygon = #{typeMultipolygon},
+      type_numeric = #{typeNumeric},
+      type_point = #{typePoint},
+      type_polygon = #{typePolygon},
+      type_real = #{typeReal},
+      type_text = #{typeText},
+      type_time = #{typeTime},
+      type_timestamp = #{typeTimestamp},
+      type_tinyblob = #{typeTinyblob},
+      type_tinyint = #{typeTinyint},
+      type_tinytext = #{typeTinytext},
+      type_varbinary = #{typeVarbinary},
+      type_varchar = #{typeVarchar},
+      type_year = #{typeYear},
+      sort = #{sort},
+      create_by = #{createBy},
+      update_by = #{updateBy},
+      comments = #{comments},
+      <if test="version != null">
+        version = version +1,
+	  </if>
+    </trim>
   </sql>
 
   <!-- where 条件集 -->
@@ -724,7 +729,51 @@
   <!-- insertBatch 全量批量插入 -->
   <insert id="insertBatch" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
     INSERT INTO demo_types (
-      <include refid="allColumns"/>
+      <trim suffixOverrides=",">
+        id,
+        type_int,
+        type_bigint,
+        type_binary,
+        type_bit,
+        type_blob,
+        type_char,
+        type_date,
+        type_datetime,
+        type_decimal,
+        type_double,
+        type_float,
+        type_geometry,
+        type_geometrycollection,
+        type_integer,
+        type_json,
+        type_linestring,
+        type_longblob,
+        type_longtext,
+        type_mediumblob,
+        type_mediumint,
+        type_mediumtext,
+        type_multilinestring,
+        type_multipoint,
+        type_multipolygon,
+        type_numeric,
+        type_point,
+        type_polygon,
+        type_real,
+        type_text,
+        type_time,
+        type_timestamp,
+        type_tinyblob,
+        type_tinyint,
+        type_tinytext,
+        type_varbinary,
+        type_varchar,
+        type_year,
+        sort,
+        create_by,
+        update_by,
+        comments,
+        version,
+      </trim>
     ) VALUES
       <foreach collection="list" item="item" open="(" close=")" separator=",">
         <include refid="allSets"/>
@@ -753,7 +802,7 @@
       AND version = #{version}
   </update>
 
-  <!-- updateBatch 批量更新(不带乐观锁)[暂不提供实现] -->
+  <!-- updateBatch 批量更新(不带乐观锁) -->
   <update id="updateBatch" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
     UPDATE demo_types
     SET
@@ -954,19 +1003,9 @@
             WHEN #{item.id} THEN #{item.sort}
           </foreach>
           END,
-        create_time = CASE id
-          <foreach collection="list" item="item">
-            WHEN #{item.id} THEN #{item.createTime}
-          </foreach>
-          END,
         create_by = CASE id
           <foreach collection="list" item="item">
             WHEN #{item.id} THEN #{item.createBy}
-          </foreach>
-          END,
-        update_time = CASE id
-          <foreach collection="list" item="item">
-            WHEN #{item.id} THEN #{item.updateTime}
           </foreach>
           END,
         update_by = CASE id
@@ -977,16 +1016,6 @@
         comments = CASE id
           <foreach collection="list" item="item">
             WHEN #{item.id} THEN #{item.comments}
-          </foreach>
-          END,
-        version = CASE id
-          <foreach collection="list" item="item">
-            WHEN #{item.id} THEN #{item.version}
-          </foreach>
-          END,
-        status = CASE id
-          <foreach collection="list" item="item">
-            WHEN #{item.id} THEN #{item.status}
           </foreach>
           END,
       </trim>
