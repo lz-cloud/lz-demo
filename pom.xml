@@ -6,13 +6,13 @@
     <parent>
         <groupId>com.wkclz.parent</groupId>
         <artifactId>lz-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>3.1.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
     <groupId>com.wkclz.demo</groupId>
     <artifactId>lz-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>3.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>lz-demo</name>
@@ -27,18 +27,6 @@
         <dependency>
             <groupId>com.wkclz.starter</groupId>
             <artifactId>lz-spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.wkclz.core</groupId>
-                    <artifactId>lz-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.wkclz.core</groupId>
-            <artifactId>lz-core</artifactId>
-            <version>3.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>

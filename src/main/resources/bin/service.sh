@@ -1,28 +1,18 @@
 #!/bin/sh
 
-# JDk 路径
 JAVA_HOME=/opt/jdk1.8
-
-# APP 文件名
 APP_NAME=lz-demo-0.0.1.jar
-
-# 应用组
+APP_SIGN=lz-demo
 APP_GROUP=lz
-
-# eureka 注册地址
 EUREKA_REGISTER_ADDR=http://127.0.0.1:8001/eureka
-
-# 启动环境
 ENV=dev
-
-# 备份数量
 BAK_NUM=3
 
 APP_HOME=$(cd `dirname $0`; pwd)
 
 psid=0
 checkpid() {
-   ps=`ps -ef | grep $APP_HOME/$APP_NAME | grep -v grep`
+   ps=`ps -ef | grep $APP_SIGN | grep -v grep`
    if [ -n "$ps" ]; then
       psid=`echo $ps | awk '{print $2}'`
    else
