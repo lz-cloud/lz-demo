@@ -1,8 +1,7 @@
 #!/bin/sh
 
 JAVA_HOME=/opt/jdk1.8
-APP_NAME=lz-demo-0.0.1.jar
-APP_SIGN=lz-demo
+APP_NAME=lz-demo-3.1.0-SNAPSHOT.jar
 APP_GROUP=lz
 EUREKA_REGISTER_ADDR=http://127.0.0.1:8001/eureka
 ENV=dev
@@ -12,7 +11,7 @@ APP_HOME=$(cd `dirname $0`; pwd)
 
 psid=0
 checkpid() {
-   ps=`ps -ef | grep $APP_SIGN | grep -v grep`
+   ps=`ps -ef | grep $APP_HOME/$APP_NAME | grep -v grep`
    if [ -n "$ps" ]; then
       psid=`echo $ps | awk '{print $2}'`
    else
@@ -29,7 +28,7 @@ start() {
    else
       echo -n "Starting $APP_NAME ..."
       cd $APP_HOME
-      nohup $JAVA_HOME/bin/java -server -Djava.security.egd=file:/dev/./urandom -jar $APP_HOME/$APP_NAME --eureka.client.service-url.defaultZone=$EUREKA_REGISTER_ADDR --spring.profiles.active=$ENV --spring.application.group=$APP_GROUP >/dev/null 2>&1 &
+      nohup $JAVA_HOME/bin/java -server -Xms128m -Xmx128m -Xmn100m -Djava.security.egd=file:/dev/./urandom -jar $APP_HOME/$APP_NAME --eureka.client.service-url.defaultZone=$EUREKA_REGISTER_ADDR --spring.profiles.active=$ENV --spring.application.group=$APP_GROUP >/dev/null 2>&1 &
 
       sleep 2s
       checkpid
@@ -55,7 +54,7 @@ bakfile() {
    echo "$BAK_NUM backup jars will be keep in ./bak"
    while(($FILE_NUM > $BAK_NUM))
    do
-      OLD_FILE=$(cd `dirname $0`;cd .bak;ls -rt *.tar.gz | head -1)
+      OLD_FILE=$(cd `dirname $0`;cd ./bak;ls -rt *.tar.gz | head -1)
       echo "Remove old backup jars:"$APP_HOME'/bak/'$OLD_FILE
       rm -f $APP_HOME'/bak/'$OLD_FILE
       let "FILE_NUM--"
