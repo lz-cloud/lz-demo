@@ -15,9 +15,16 @@
       type_decimal,
       type_double,
       type_float,
+      type_geometrycollection,
       type_integer,
+      type_linestring,
       type_mediumint,
+      type_multilinestring,
+      type_multipoint,
+      type_multipolygon,
       type_numeric,
+      type_point,
+      type_polygon,
       type_real,
       type_time,
       type_timestamp,
@@ -614,14 +621,35 @@
       <if test="typeFloat != null">
         AND type_float = #{typeFloat}
       </if>
+      <if test="typeGeometrycollection != null">
+        AND type_geometrycollection = #{typeGeometrycollection}
+      </if>
       <if test="typeInteger != null">
         AND type_integer = #{typeInteger}
+      </if>
+      <if test="typeLinestring != null">
+        AND type_linestring = #{typeLinestring}
       </if>
       <if test="typeMediumint != null">
         AND type_mediumint = #{typeMediumint}
       </if>
+      <if test="typeMultilinestring != null">
+        AND type_multilinestring = #{typeMultilinestring}
+      </if>
+      <if test="typeMultipoint != null">
+        AND type_multipoint = #{typeMultipoint}
+      </if>
+      <if test="typeMultipolygon != null">
+        AND type_multipolygon = #{typeMultipolygon}
+      </if>
       <if test="typeNumeric != null">
         AND type_numeric = #{typeNumeric}
+      </if>
+      <if test="typePoint != null">
+        AND type_point = #{typePoint}
+      </if>
+      <if test="typePolygon != null">
+        AND type_polygon = #{typePolygon}
       </if>
       <if test="typeReal != null">
         AND type_real = #{typeReal}

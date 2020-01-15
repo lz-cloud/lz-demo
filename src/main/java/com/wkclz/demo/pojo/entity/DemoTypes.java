@@ -80,7 +80,7 @@ public class DemoTypes extends BaseModel {
     /**
      * type_geometrycollection
      */
-    private byte[] typeGeometrycollection;
+    private Object typeGeometrycollection;
 
     /**
      * type_integer
@@ -95,7 +95,7 @@ public class DemoTypes extends BaseModel {
     /**
      * type_linestring
      */
-    private byte[] typeLinestring;
+    private Object typeLinestring;
 
     /**
      * type_longblob
@@ -125,17 +125,17 @@ public class DemoTypes extends BaseModel {
     /**
      * type_multilinestring
      */
-    private byte[] typeMultilinestring;
+    private Object typeMultilinestring;
 
     /**
      * type_multipoint
      */
-    private byte[] typeMultipoint;
+    private Object typeMultipoint;
 
     /**
      * type_multipolygon
      */
-    private byte[] typeMultipolygon;
+    private Object typeMultipolygon;
 
     /**
      * type_numeric
@@ -145,12 +145,12 @@ public class DemoTypes extends BaseModel {
     /**
      * type_point
      */
-    private byte[] typePoint;
+    private Object typePoint;
 
     /**
      * type_polygon
      */
-    private byte[] typePolygon;
+    private Object typePolygon;
 
     /**
      * type_real
