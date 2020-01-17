@@ -22,7 +22,7 @@ public class TestRest {
 
     @GetMapping("/test/page")
     public Result page(DemoTypes demoTypes) {
-        PageData<DemoTypes> page = demoTypesService.page(demoTypes);
+        PageData<DemoTypes> page = demoTypesService.pageDemo(demoTypes);
         return Result.data(page);
     }
 

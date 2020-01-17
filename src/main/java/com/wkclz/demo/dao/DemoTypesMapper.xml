@@ -3,12 +3,22 @@
 <mapper namespace="com.wkclz.demo.dao.DemoTypesMapper">
 
   <!-- // 示例查询, 可删除 -->
-  <select id="example" resultType="java.lang.Integer">
-    SELECT
-      1 count
-    FROM
-      DUAL
-  </select>
+    <select id="example" resultType="java.lang.Integer">
+        SELECT
+        1 count
+        FROM
+        DUAL
+    </select>
+
+    <select id="pageDemo" parameterType="com.wkclz.demo.pojo.entity.DemoTypes" resultType="com.wkclz.demo.pojo.entity.DemoTypes">
+        SELECT
+            *
+        FROM
+            demo_types
+        WHERE
+            1=1
+            AND status = 1
+    </select>
   
 </mapper>
 

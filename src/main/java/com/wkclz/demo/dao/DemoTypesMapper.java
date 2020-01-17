@@ -4,6 +4,8 @@ import com.wkclz.core.base.BaseMapper;
 import com.wkclz.demo.pojo.entity.DemoTypes;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * Description: Create by lz-gen
  * @author: wangkaicun
@@ -15,6 +17,8 @@ public interface DemoTypesMapper extends BaseMapper<DemoTypes> {
 
     // 示例查询,可删除
     Integer example();
+
+    List<DemoTypes> pageDemo(DemoTypes demoTypes);
 
 }
 

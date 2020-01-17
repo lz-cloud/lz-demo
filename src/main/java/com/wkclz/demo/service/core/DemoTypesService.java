@@ -1,6 +1,8 @@
 package com.wkclz.demo.service.core;
 
 import com.wkclz.core.base.BaseService;
+import com.wkclz.core.base.PageData;
+import com.wkclz.core.base.PageHandle;
 import com.wkclz.demo.dao.DemoTypesMapper;
 import com.wkclz.demo.pojo.entity.DemoTypes;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,10 @@ public class DemoTypesService extends BaseService<DemoTypes, DemoTypesMapper> {
     // 示例方法，可删除
     public Integer example(){
         return  mapper.example();
+    }
+
+    public PageData<DemoTypes> pageDemo(DemoTypes demoTypes){
+        return new PageHandle(demoTypes).page(mapper.pageDemo(demoTypes));
     }
 
 }
