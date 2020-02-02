@@ -2,6 +2,7 @@ package com.wkclz.demo.rest.custom;
 
 import com.wkclz.core.base.PageData;
 import com.wkclz.core.base.Result;
+import com.wkclz.core.base.annotation.Desc;
 import com.wkclz.demo.pojo.entity.DemoTypes;
 import com.wkclz.demo.service.core.DemoTypesService;
 import org.slf4j.Logger;
@@ -20,24 +21,28 @@ public class TestRest {
     @Autowired
     private DemoTypesService demoTypesService;
 
+    @Desc("分页测试")
     @GetMapping("/test/page")
     public Result page(DemoTypes demoTypes) {
         PageData<DemoTypes> page = demoTypesService.pageDemo(demoTypes);
         return Result.data(page);
     }
 
+    @Desc("列表测试")
     @GetMapping("/test/list")
     public Result list(DemoTypes demoTypes) {
         List<DemoTypes> list = demoTypesService.list(demoTypes);
         return Result.data(list);
     }
 
+    @Desc("查询测试")
     @GetMapping("/test/query")
     public Result query() {
         DemoTypes demoTypes = demoTypesService.get(1L);
         return Result.data(demoTypes);
     }
 
+    @Desc("更新测试")
     @GetMapping("/test/update")
     public Result update() {
         DemoTypes demoTypes = demoTypesService.get(1L);
@@ -46,6 +51,7 @@ public class TestRest {
         return Result.data(integer);
     }
 
+    @Desc("插入测试")
     @GetMapping("/test/insert")
     public Result insert() {
         DemoTypes demoTypes = new DemoTypes();
