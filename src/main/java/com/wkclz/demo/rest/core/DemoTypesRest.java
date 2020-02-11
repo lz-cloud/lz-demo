@@ -3,7 +3,6 @@ package com.wkclz.demo.rest.core;
 import com.wkclz.core.base.BaseModel;
 import com.wkclz.core.base.PageData;
 import com.wkclz.core.base.Result;
-import com.wkclz.core.helper.BaseHelper;
 import com.wkclz.demo.pojo.entity.DemoTypes;
 import com.wkclz.demo.service.core.DemoTypesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -589,17 +588,10 @@ public class DemoTypesRest {
     @PostMapping("/demo/types/update")
     @Transactional(rollbackFor = Exception.class)
     public Result demoTypesUpdate(@RequestBody DemoTypes model){
-
         if (model.getId() == null){
             return Result.error("id can not be null");
         }
-        DemoTypes target = demoTypesService.get(model.getId());
-        if (target == null){
-            return Result.error("id is error, data is not exist");
-        }
-        DemoTypes.copyIfNotNull(model, target);
-
-        demoTypesService.updateAll(target);
+        demoTypesService.updateSelective(model);
         return Result.data(model);
     }
 
@@ -722,12 +714,7 @@ public class DemoTypesRest {
             Long id = demoTypesService.insert(model);
             model.setId(id);
         } else {
-            DemoTypes data = demoTypesService.get(model.getId());
-            if (data == null){
-                return Result.error("id错误，数据不存在");
-            }
-            DemoTypes.copyIfNotNull(model, data);
-            demoTypesService.updateAll(data);
+            demoTypesService.updateSelective(model);
         }
         return Result.data(model);
 
@@ -758,12 +745,8 @@ public class DemoTypesRest {
      */
     @PostMapping("/demo/types/remove")
     @Transactional(rollbackFor = Exception.class)
-    public Result demoTypesRemove(@RequestBody BaseModel model){
-        Result result = BaseHelper.removeCheck(model);
-        if (result.getError()!=null){
-            return result;
-        }
-        Integer rt = demoTypesService.delete(model.getIds());
+    public Result demoTypesRemove(@RequestBody DemoTypes model){
+        Integer rt = demoTypesService.delete(model);
         return Result.data(rt);
     }
 

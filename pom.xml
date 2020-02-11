@@ -80,12 +80,8 @@
 
     <repositories>
         <repository>
-            <id>wkclz-releases</id>
-            <url>https://mvn.wkclz.com/repository/</url>
-        </repository>
-        <repository>
-            <id>wkclz-snapshots</id>
-            <url>https://mvn.wkclz.com/repository/</url>
+            <id>wkclz-public</id>
+            <url>http://mvn.wkclz.com/repository/wkclz-public/</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>

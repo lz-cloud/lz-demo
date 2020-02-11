@@ -695,7 +695,7 @@
   <insert id="insert" parameterType="com.wkclz.demo.pojo.entity.DemoTypes">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
-     </selectKey>
+    </selectKey>
     INSERT INTO demo_types (
       <include refid="selectiveColumns"/>
 	) VALUES (
@@ -1094,19 +1094,12 @@
       update_by = #{updateBy}
     WHERE
       status = 1
-      AND id = #{id}
-  </update>
-
-  <!-- deleteBatch 批量(逻辑)删除 -->
-  <update id="deleteBatch" parameterType="java.util.List">
-    UPDATE demo_types
-    SET
-      status = 0,
-      version = version + 1,
-      update_by = #{updateBy}
-    WHERE
-      status = 1
-      AND id IN ( <foreach collection="ids" item="item" separator=","> #{item} </foreach> )
+      <if test="id != null">
+        AND id = #{id}
+      </if>
+      <if test="ids != null and ids.size > 0">
+        AND id IN ( <foreach collection="ids" item="item" separator=",">#{item.id}</foreach> )
+      </if>
   </update>
 
 </mapper>
