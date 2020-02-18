@@ -685,9 +685,9 @@
 	  ORDER BY
         ${orderBy}
 	</if>
-	<if test="pageNo != null and pageSize != null">
+	<if test="pageSize != null and offset != null">
 	  LIMIT
-	    ((#{pageNo} -1) * #{pageSize}), #{pageSize}
+	    #{offset}, #{pageSize}
 	</if>
   </select>
 
