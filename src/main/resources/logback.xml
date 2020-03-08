@@ -4,7 +4,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     -->
     <springProperty scope="context" name="spring.application.name" source="spring.application.name" defaultValue="lz"/>
-    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%X{envType}|${spring.application.name}|%X{originIp}-%X{serverIp}|%X{traceId}|%X{spanId}|%X{tenantId}|%X{userId}|%-4level|%thread|%-36logger{36}|%-3L |%msg%n"/>
+    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%X{envType}|${spring.application.name}|%X{upstreamIp}-%X{serverIp}|%X{traceId}|%X{spanId}|%X{tenantId}|%X{userId}|%-4level|%thread|%-36logger{36}|%-3L |%msg%n"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

@@ -29,3 +29,7 @@ logging:
   level:
     root: INFO
     com.wkclz: INFO
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
