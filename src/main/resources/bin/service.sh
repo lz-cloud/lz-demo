@@ -1,7 +1,7 @@
 #!/bin/sh
 
 JAVA_HOME=/opt/jdk1.8
-APP_NAME=lz-demo-3.1.0-SNAPSHOT.jar
+APP_NAME=lz-demo.jar
 APP_GROUP=lz
 EUREKA_REGISTER_ADDR=http://127.0.0.1:8001/eureka
 ENV=dev
@@ -11,7 +11,7 @@ APP_HOME=$(cd `dirname $0`; pwd)
 
 psid=0
 checkpid() {
-   ps=`ps -ef | grep $APP_HOME/$APP_NAME | grep -v grep`
+   ps=`ps -ef | grep $APP_NAME | grep -v grep`
    if [ -n "$ps" ]; then
       psid=`echo $ps | awk '{print $2}'`
    else

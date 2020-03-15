@@ -29,7 +29,7 @@ cd $TEMP_PATH/$APP/
 
 # 部署
 echo "准备发布..."
-cp $TEMP_PATH/$APP/target/$APP-*.jar $DIST_PATH/$APP/
+cp $TEMP_PATH/$APP/target/*.jar $DIST_PATH/$APP/
 
 # 启动
 echo "重启应用..."
