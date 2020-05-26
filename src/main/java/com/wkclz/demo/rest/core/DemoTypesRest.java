@@ -23,7 +23,7 @@ public class DemoTypesRest {
     private DemoTypesService demoTypesService;
 
     /**
-     * @api {get} /demo/types/page 1、demo-全类型-获取分页
+     * @api {get} /demo/types/page 1. demo-全类型-获取分页
      * @apiGroup DEMO_TYPES
      *
      * @apiVersion 0.0.1
@@ -176,7 +176,7 @@ public class DemoTypesRest {
     }
 
     /**
-     * @api {get} /demo/types/count 2、demo-全类型-获取数量
+     * @api {get} /demo/types/count 2. demo-全类型-获取数量
      * @apiGroup DEMO_TYPES
      *
      * @apiVersion 0.0.1
@@ -231,7 +231,7 @@ public class DemoTypesRest {
     }
 
     /**
-     * @api {get} /demo/types/detail 3、demo-全类型-获取详情
+     * @api {get} /demo/types/info 3. demo-全类型-获取详情
      * @apiGroup DEMO_TYPES
      *
      * @apiVersion 0.0.1
@@ -343,8 +343,8 @@ public class DemoTypesRest {
      * }
      *
      */
-    @GetMapping("/demo/types/detail")
-    public Result demoTypesDetail(DemoTypes model){;
+    @GetMapping("/demo/types/info")
+    public Result demoTypesInfo(DemoTypes model){;
         if (model.getId()==null){
             return Result.error("id can not be null");
         }
@@ -356,7 +356,7 @@ public class DemoTypesRest {
     }
 
     /**
-     * @api {post} /demo/types/new 4、demo-全类型-新增信息
+     * @api {post} /demo/types/new 4. demo-全类型-新增信息
      * @apiGroup DEMO_TYPES
      *
      * @apiVersion 0.0.1
@@ -475,7 +475,7 @@ public class DemoTypesRest {
     }
 
     /**
-     * @api {post} /demo/types/update 5、demo-全类型-更新信息
+     * @api {post} /demo/types/update 5. demo-全类型-更新信息
      * @apiGroup DEMO_TYPES
      *
      * @apiVersion 0.0.1
@@ -596,7 +596,7 @@ public class DemoTypesRest {
     }
 
     /**
-     * @api {post} /demo/types/save 6、demo-全类型-保存信息
+     * @api {post} /demo/types/save 6. demo-全类型-保存信息
      * @apiGroup DEMO_TYPES
      *
      * @apiVersion 0.0.1
@@ -721,7 +721,7 @@ public class DemoTypesRest {
     }
 
     /**
-     * @api {post} /demo/types/remove 7、demo-全类型-删除【单个，批量】
+     * @api {post} /demo/types/remove 7. demo-全类型-删除【单个，批量】
      * @apiGroup DEMO_TYPES
      *
      * @apiVersion 0.0.1

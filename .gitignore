@@ -18,6 +18,7 @@ mvnw.cmd
 *.iws
 *.iml
 *.ipr
+*.vue
 
 ### NetBeans ###
 /nbproject/private/
