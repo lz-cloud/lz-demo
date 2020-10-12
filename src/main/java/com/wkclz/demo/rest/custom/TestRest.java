@@ -8,6 +8,7 @@ import com.wkclz.demo.service.core.DemoTypesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,9 @@ public class TestRest {
 
     @Autowired
     private DemoTypesService demoTypesService;
+    @Autowired
+    private ApplicationContext applicationContext;
+
 
     @Desc("分页测试")
     @GetMapping("/test/page")
@@ -60,5 +64,10 @@ public class TestRest {
         return Result.data(insert);
     }
 
+    @GetMapping("/test/bean")
+    public Result bean(){
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        return Result.data(beanDefinitionNames);
+    }
 
 }
